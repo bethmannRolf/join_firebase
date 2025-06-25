@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Board</title>
+    <link rel="shortcut icon" href="../img/favicon.svg" type="image/x-icon">
+    <link rel="stylesheet" href="../css/aside_and_head_style.css">
+    <link rel="stylesheet" href="../css/board.css">
+    <link rel="stylesheet" href="../css/boardAddTaskOverlay.css">
+    <link rel="stylesheet" href="../css/boardEditTaskOverlay.css">
+    <link rel="stylesheet" href="../css/contact.css">
+    <link rel="stylesheet" href="../css/mediaQuerry.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../JavaScript/boardHTMLTemplate.js" defer></script>
+    <script src="../JavaScript/signUp.js" defer></script>
+    <script src="../JavaScript/data.js" defer></script>
+    <script src="../JavaScript/script.js" defer></script>
+    <script src="../JavaScript/include.js" defer></script>
+    <script src="../JavaScript/board.js" defer></script>
+    <script src="../JavaScript/boardTaskOverlay.js" defer></script>
+    <script src="../JavaScript/boardEditOverlay.js" defer></script>
+    <script src="../JavaScript/summary.js" defer></script>
+</head>
+
+<body onload="initUser();initBoardFunctions()">
+    <header w3-include-html="../templates/header.html">
+    </header>
+    <div class="submenuContainer d-none" id="submenuContainer" onclick="closeDropdownMenu()">
+        <div class="submenu" onclick="stopPropagation(event)">
+            <ul>
+                <a href="legalNotice.html">Legal Notice</a>
+                <a href="privacyPolicy.html">Privacy Policy</a>
+                <a href="index.html">Log Out</a>
+            </ul>
+        </div>
+    </div>
+    <aside w3-include-html="../templates/aside.html">
+    </aside>
+    <div class="darkBackgroundContainer d-none" id="darkBackgroundContainer" onclick="closeAddTaskView(), slideOut()">
+    </div>
+    <main id="content-bord">
+        <div id="upper-board-div">
+            <div id="upper-bord-first-line">
+                <div id="heading-div">
+                    <h1 id="h1-board">Board</h1>
+                </div>
+                <div id="right-upper-board">
+                    <div id="board-input-div">
+                        <input onkeyup="filterTasksBoard()" placeholder="Find Task" id="board-input-field">
+                        <img id="image-mg-glass" onclick="focusSearchInput()" src="../img/board/search.svg">
+                    </div>
+                    <button onclick="openAddTaskForm()" id="add-task-button">
+                        <span id="add-task-span">Add task</span>
+                        <img id="add-task-image" src="../img/board/add.svg">
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="tasks-div">
+            <div class="newTodo">
+                <div id="to-do-heading-div">
+                    <span class="column-heading-span-style">To do</span>
+                    <img onclick="openAddTaskForm()" class="column-head-plus" src="../img/board/plus_button.svg">
+                </div>
+                <div id="to-do-column" class="task-column" ondrop="moveTo('toDo')"
+                    ondragleave="dehighlightBoardColumns('toDo')"
+                    ondragover="allowDrop(event);highlightBoardColumn('toDo')">
+                </div>
+            </div>
+            <div class="newInProgress">
+                <div id="in-progress-heading-div">
+                    <span class="column-heading-span-style">In progress</span>
+                    <img onclick="openAddTaskForm()" class="column-head-plus" src="../img/board/plus_button.svg">
+                </div>
+                <div id="in-progress-column" class="task-column" ondrop="moveTo('inProgress')"
+                    ondragleave="dehighlightBoardColumns('inProgress')"
+                    ondragover="allowDrop(event); highlightBoardColumn('inProgress')">
+                </div>
+            </div>
+            <div class="newAwaitFeedback">
+                <div id="await-feedback-heading-div">
+                    <span class="column-heading-span-style">Await feedback</span>
+                    <img onclick="openAddTaskForm()" class="column-head-plus" src="../img/board/plus_button.svg">
+                </div>
+                <div id="await-feedback-column" class="task-column" ondrop="moveTo('awaitFeedback')"
+                    ondragleave="dehighlightBoardColumns('awaitFeedback')"
+                    ondragover="allowDrop(event); highlightBoardColumn('awaitFeedback')">
+                </div>
+            </div>
+            <div class="newDone">
+                <div id="done-heading-div">
+                    <span class="column-heading-span-style">Done</span>
+                </div>
+                <div id="done-column" class="task-column" ondrop="moveTo('done')"
+                    ondragleave="dehighlightBoardColumns('done')"
+                    ondragover="allowDrop(event); highlightBoardColumn('done')">
+                </div>
+            </div>
+        </div>
+    </main>
+    <div class="taskdetail-container" id="detailview-container">
+    </div>
+    <div id="overlay-identifier" class="overlay-d-none">
+    </div>
+    <div class="add-task-overlay-board" id="add-task-id-overlay" onclick="stopPropagation(event)">
+    </div>
+    <div id="toastMessage" class="toast-message-search"></div>
+    <div id="toastNotification" class="toast-message-search"></div>
+</body>
+
+</html>

@@ -1,0 +1,172 @@
+* {
+  font-family: "Inter", sans-serif;
+}
+
+.popUp {
+    display: none; /* Verstecke den Container standardmäßig */
+    opacity: 0; /* Setze die Anfangsopazität auf 0 */
+    transition: opacity 0.5s ease; /* Füge eine Transition für die Opazität hinzu */
+}
+
+.popUp.show {
+    display: block; /* Zeige den Container, wenn die Klasse .show hinzugefügt wird */
+    position: absolute;
+    opacity: 1; /* Ändere die Opazität auf 1, um den Container einzublenden */
+}
+
+.signUpHeadline {
+  display: flex;
+  justify-content: center;
+  height: 89px;
+  width: 315px;
+  gap: 16px;
+  position: relative;
+  margin-bottom: 16px;
+}
+
+.signUpHeadline::after {
+  content: "";
+  width: 50%;
+  border: 3px solid #29abe2;
+  background: #29abe2;
+  position: absolute;
+  bottom: 0;
+}
+
+.logoSignUpImage {
+  position: absolute;
+  top: 80px;
+  left: 77px;
+  width: 100px;
+  height: 122px;
+}
+
+.addSpace {
+  margin-top: 32px;
+}
+
+.signUpFrame {
+  width: 598px;
+  height: 630px;
+  padding: 48px 88px;
+  border-radius: 30px;
+  background-color: #ffffff;
+  box-shadow: 0px 0px 14px 3px #0000000a;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  gap: 32px;
+  position: relative;
+}
+
+.passwordNotMatch {
+  color: red;
+}
+
+.signUpHeadline p {
+  height: 73px;
+  font-size: 61px;
+  font-weight: 700;
+  /* line-height: 73px; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.backToLoginPageContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  width: 30px;
+  position: absolute;
+  left: 50px;
+  top: 50px;
+}
+
+.backToLoginPageContainer:hover {
+  cursor: pointer;
+  background-color: lightgray;
+  border-radius: 100%;
+}
+
+.signUpInputs {
+  display: flex;
+  flex-direction: column;
+  width: 422px;
+  gap: 16px;
+  align-items: center;
+  height: fit-content;
+}
+
+.signUpinputField {
+  display: flex;
+  flex-direction: column;
+  width: 422px;
+  height: 286px;
+  gap: 24px;
+}
+
+.signUpinputField div {
+  height: 48px;
+  display: flex;
+  gap: 8px;
+}
+
+.inputFrame input {
+  height: 48px;
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid #d1d1d1;
+  padding: 12px 21px;
+  /* box-sizing: border-box; */
+}
+
+.emailField div {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.passwordField div {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.signUpinputField div:nth-child(4) {
+  display: flex;
+  align-items: start;
+  height: 70px;
+}
+
+.acceptPrivacyPolicyContainer {
+  box-sizing: content-box;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.acceptPrivacyPolicyContainer p a {
+  color: #29abe2;
+  text-decoration: none;
+}
+
+.acceptPrivacyPolicyContainer p a:hover {
+  text-decoration: underline;
+}
+
+.acceptPrivacyPolicyContainer:hover input {
+  /* box-shadow:inset 2px 2px 1px #29ABE2; */
+  filter: drop-shadow(5px 5px 5px #29abe2);
+}
+
+.checkbox {
+  width: 16px;
+}

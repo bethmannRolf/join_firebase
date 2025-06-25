@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign up</title>
+    <link rel="shortcut icon" href="../img/favicon.svg" type="image/x-icon">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/signUp.css">
+    <link rel="stylesheet" href="../css/fonts.css">
+    <link rel="stylesheet" href="../css/mediaQuerry.css">
+    <script src="../JavaScript/signUp.js"></script>
+    <script src="../JavaScript/data.js"></script>
+    <script src="../JavaScript/script.js"></script>
+</head>
+
+<body onload="loadUsers()">
+    <img class="logoSignUpImage" src="../img/logoLoginPage.svg">
+    <div class="signUpFrame" id="signUpFrame">
+        <div class="backToLoginPageContainer">
+            <a href="index.html"><img src="../img/arrowLeft.svg"></a>
+        </div>
+        <form onsubmit="registerUser(); return false;" class="signUpInputs">
+            <div class="signUpHeadline">
+                <p>Sign up</p>
+            </div>
+            <div class="signUpinputField">
+                <div class="passwordField">
+                    <div class="inputFrame">
+                        <input required type="text" placeholder="Name" id="userName">
+                        <img src="../img/signUpNameIcon.svg">
+                    </div>
+                </div>
+                <div class="emailField">
+                    <div class="inputFrame">
+                        <input required type="email" placeholder="Email" id="email">
+                        <img src="../img/mail.svg">
+                    </div>
+                </div>
+                <div class="passwordField">
+                    <div class="inputFrame">
+                        <input required type="password" min="8" placeholder="Password" id="password">
+                        <img src="../img/lock.svg">
+                    </div>
+                </div>
+                <div class="passwordField">
+                    <div class="inputFrame">
+                        <input required type="password" id="confirmPassword" placeholder="Confirm Password">
+                        <img src="../img/lock.svg">
+                    </div>
+                </div>
+                <div class="passwordNotMatch d-none" id="passwordNotMatch">
+                    <span>The Passwords does not match to each other!</span>
+                </div>
+            </div>
+            <div class="acceptPrivacyPolicyContainer" id="PPContainer">
+
+                <div class="checkboxImage">
+                    <img onclick="changeCheckbox()" id="notChecked" class="checkbox" src="../img/Checkbutton.svg"
+                        alt="">
+                    <img onclick="changeCheckbox()" id="checked" class="checkbox d-none"
+                        src="../img/checkedNew.svg" alt="">
+                </div>
+                <p>I accept the <a href="privacyPolicyExtern.html" target="_blank">Privacy policy</a></p>
+            </div>
+            <div class="signUpButtonContainer">
+                <button id="registerButton" class="loginButton">Sign up</button>
+            </div>
+        </form>
+    </div>
+    <div class="privacyPolicyContainer">
+        <a href="privacyPolicyExtern.html"><button>Privacy Policy</button></a>
+        <a href="legalNoticeExtern.html"><button>Legal notice</button></a>
+    </div>
+    <div id="animationSignUp" class="popUp">
+        <img src="../img/YouSignedUpsuccessfully.svg">
+    </div>
+</body>
+
+</html>

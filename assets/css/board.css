@@ -1,0 +1,474 @@
+.none {
+    display: none;
+}
+
+#content-bord {
+    position: fixed;
+    top: 96px;
+    left: 216px;
+    right: 0;
+    bottom: 0;
+    background-color: #F6F7F8;    
+}
+
+#h1-board {
+    font-weight: 700;
+    font-size: 61px;
+    line-height: 73.2px;
+    color: black;
+}
+
+.column-head-plus {
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.column-head-plus:hover {
+    content: url('../img/board/plus_button_light.svg');
+    transform: scale(1.1);
+}
+
+#upper-board-div {
+    width: 100%;
+}
+
+#image-mg-glass {
+    cursor: pointer;
+}
+
+#board-input-field::placeholder {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    color: #D1D1D1;
+    align-items: center;
+}
+
+#upper-bord-first-line {
+    height: 232px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 62px 0px 60px;
+    flex-wrap: wrap;
+}
+
+#right-upper-board {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+}
+
+#board-input-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #A8A8A8;
+    justify-content: space-between;
+    padding: 8px 16px 8px 16px;
+    gap: 10px;
+    border-radius: 10px;
+    height: 48px;
+    background-color: white;
+}
+
+#board-input-field {
+    border: none;
+    height: 32px;
+    border-right: 1px solid #A8A8A8;
+    width: 100%;
+}
+
+#add-task-image {
+    height: 18.67px;
+    width: 18.67px;
+}
+
+#add-task-button {
+    background-color: #2A3647;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 16px 8px 16px;
+    gap: 4px;
+    border: 1px solid #2A3647;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#add-task-button:hover {
+    background-color: #29ABE2;
+    border: 1px solid #29ABE2;
+}
+
+#add-task-span {
+    font-weight: 700;
+    font-size: 21px;
+    line-height: 25.2px;
+}
+
+#upper-board-column-heading {
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 64px 0px 64px;
+}
+
+#to-do-heading-div,
+#in-progress-heading-div,
+#await-feedback-heading-div,
+#done-heading-div {
+    margin-bottom: 16px;
+}
+
+#to-do-heading-div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 244px;
+}
+
+#in-progress-heading-div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 244px;
+}
+
+#await-feedback-heading-div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 244px;
+}
+
+#done-heading-div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 244px;
+}
+
+.column-heading-span-style {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    color: #42526E;
+}
+
+#tasks-div {
+    display: flex;
+    justify-content: space-between;
+    gap: 26px;
+    height: 100%;
+    padding: 0px 64px 0px 64px;
+    margin-top: 4px;
+}
+
+.task-column {
+    background-color: #F6F7F8;
+    width: 264px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    height: 100%;
+    max-height: 58vh;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    margin-bottom: 24px;
+    padding: 10px;
+}
+
+.no-task {
+    width: 100%;
+    background-color: #E7E7E7;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px dashed #A8A8A8;
+    border-radius: 10px;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.16);
+}
+
+.no-task-span {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19.2px;
+    color: #A8A8A8;
+}
+
+.d-none {
+    display: none !important;
+}
+
+.card-for-task {
+    width: 234px;
+    box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.08);
+    padding: 16px;
+    gap: 10px;
+    border-radius: 24px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.card-for-task:hover {
+    transform: rotate(5deg);
+    transition: all 100ms ease-in-out;
+
+}
+
+.task-category-span {
+    border-radius: 8px;
+    border: none;
+    padding: 4px 16px 4px 16px;
+    color: white;
+}
+
+.task-board-div {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    gap: 8px;
+}
+
+.task-heading-span {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 19.2px;
+    color: #2A3647;
+}
+
+.task-description-span {
+    font-size: 400;
+    font-weight: 16px;
+    line-height: 19.2px;
+    color: #A8A8A8;
+}
+
+.board-subtask-div {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.subtask-number-class,
+.slash,
+.total-numbers-subtask-class,
+.subtasks-span {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14.4px;
+    color: black;
+}
+
+.balken {
+    width: 100px;
+    height: 8px;
+    border-radius: 8px;
+    background-color: #F4F4F4;
+    position: relative;
+}
+
+.sub-span-div {
+    display: flex;
+}
+
+.sub-span-subtasks {
+    display: flex;
+}
+
+.fuellung {
+    height: 100%;
+    border-radius: 8px;
+    background-color: #4589FF;
+}
+
+.assigned-testuser {
+    color: white;
+    font-size: 12px;
+    line-height: 14.4px;
+    font-weight: 400;
+    text-align: center;
+}
+
+.testuser-orange {
+    background-color: orange;
+    border-radius: 50%;
+    height: 32px;
+    width: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid white;
+    margin-left: -10px;
+}
+
+.testuser-cyan {
+    background-color: cyan;
+    border-radius: 50%;
+    height: 32px;
+    width: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid white;
+    margin-left: -16px;
+}
+
+.testuser-purple {
+    background-color: purple;
+    border-radius: 50%;
+    height: 32px;
+    width: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid white;
+    margin-left: -16px;
+}
+
+.assigned-users-div {
+    display: flex;
+    gap: 10px;
+    padding-left: 16px;
+}
+
+.assigned-tasks-and-prio-div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.round-user-profile {
+    border-radius: 50%;
+    height: 32px;
+    width: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid white;
+    margin-left: -16px;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none; 
+    z-index: 5; 
+}
+
+.overlay.overlay-show {
+    display: block; 
+}
+
+.flex-space-between {
+    display: flex;
+    justify-content: space-between;
+}
+
+.scale-view-up:hover {
+    scale: 110%;
+}
+
+.toast-notification {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    display: none;
+}
+
+.toast-message-search {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    z-index: 9999;
+    display: none;
+}
+
+.dragarea-highlight {
+    background-color: lightgray;
+    border-radius: 10px;
+    border: 2px solid black;
+    border-style: dashed;
+}
+
+
+.arrow-downward:hover{
+scale: 105%;
+background-color: lightgray;
+border: unset;
+border-radius: 50%;
+cursor: pointer;
+user-select: none;
+}
+
+
+.arrow-upward:hover{
+scale:105%;
+background-color: lightgray;
+border: unset;
+border-radius: 50%;
+cursor: pointer;
+user-select: none;
+}
+
+#assigned-contacts-after-choosing-board-overlay{
+    display: flex;
+    justify-content: flex-start;
+}
+
+.created-subtask-pencil-board-overlay-image{
+
+    margin-right: 10px;
+}
+
+.created-subtask-pencil-board-overlay-image:hover{
+    scale: 110%;    
+    cursor: pointer;
+}
+
+
+.created-subtask-bin-board-overlay-image:hover{
+    scale:110%;
+    cursor: pointer;
+
+}
+
+.created-subtask-board-overlay-div-styling{
+    display: flex;
+    justify-content: space-between;
+}
+
+.created-subtask-board-overlay-div-styling:hover{
+    background-color: #E7E7E7;
+}
+
+#created-board-overlay-subtasks{
+    padding-top: 20px;
+    padding-bottom: 50px;
+}

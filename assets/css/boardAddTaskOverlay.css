@@ -1,0 +1,373 @@
+.add-task-overlay-board {
+    z-index: 10;
+    width: 1000px;
+    height: 800px;
+    position: fixed;
+    top: 50%;
+    right: -200%; 
+    transform: translate(50%, -50%);
+    transition: right 0.5s ease-in-out; 
+    background-color: white;
+    border-radius: 30px;
+    padding: 48px 40px 48px 40px;
+    flex-direction: column;
+    gap: 24px;
+    box-shadow: 0px 0px 4px 0 0px rgba(0, 0, 0, 0.16);
+    background-color: #F6F7F8;
+}
+
+.add-task-overlay-board.showAddTask {
+    right: 50%; 
+}
+
+#add-task-board-context {
+    display: flex;
+    flex-direction: column;
+}
+
+.red-star-styling {
+    color: red;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.add-board-third-line-right {
+    display: flex;
+    gap: 16px;
+}
+
+.add-board-cancel-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #2A3647;
+    border: 1px solid #2A3647;
+    padding: 16px;
+    border-radius: 10px;
+    width: 110px;
+    height: 56px;
+    background-color: #F6F7F8;
+    border: none;
+    cursor: pointer;
+    user-select: none;
+}
+
+.add-board-create-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #2A3647;
+    width: 183px;
+    height: 56px;
+    border-radius: 10px;
+    padding: 16px;
+    gap: 4px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    user-select: none;
+}
+
+.add-board-create-div:hover {
+    background-color: #29ABE2;
+    box-shadow: 1px 4px 4px 1px rgba(0, 0, 0, 0.1);
+}
+
+.add-board-cancel-div:hover {
+    box-shadow: 1px 4px 4px 1px rgba(0, 0, 0, 0.1);
+    border: 1px solid #29ABE2;
+    color: #29ABE2;
+}
+
+.add-board-create-span {
+    font-weight: 700;
+    font-size: 21px;
+    line-height: 25.2px;
+}
+
+.add-board-heading {
+    font-weight: 700;
+    font-size: 61px;
+    line-height: 73.2px;
+    color: black;
+}
+
+.add-board-first-line {
+    align-items: flex-start;
+}
+
+.add-board-cancel-span {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+}
+
+.add-board-thirdline {
+    display: flex;
+    justify-content: space-between;
+}
+
+.add-board-second-line {
+    display: flex;
+    gap: 10px;
+}
+
+.add-board-left-column {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.add-board-dividing-column {
+    background-color: black;
+    height: 100%;
+}
+
+#title-board-overlay-div {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 14px;
+    width: 440px;
+}
+
+.add-task-font-styling {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+}
+
+#add-task-title-board-overlay-input {
+    padding: 12px 21px 12px 21px;
+    border: 1px solid #D1D1D1;
+    border-radius: 10px;
+    height: 50px;
+}
+
+.add-task-placeholder-font-styling::placeholder {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    color: #D1D1D1;
+}
+
+#description-board-overlay-div {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-bottom: 14px;
+    width: 440px;
+}
+
+.add-task-font-styling {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+}
+
+#add-task-description-board-overlay-textarea {
+    height: 120px;
+    padding: 18px 16px 18px 16px;
+    border: 1px solid #D1D1D1;
+    border-radius: 10px;
+}
+
+#assigned-dropdown-board-overlay-div {
+    width: 440px;
+    height: 48px;
+    border: 1px solid #D1D1D1;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px 12px 16px;
+    cursor: pointer;
+    user-select: none;
+    background-color: white;
+}
+
+#drop-down-board-overlay-content {
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+    max-height: 150px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    z-index: 5;
+}
+
+#drop-down-board-overlay-content::-webkit-scrollbar {
+    width: 4px;
+}
+
+#drop-down-board-overlay-content::-webkit-scrollbar-thumb {
+    background-color: #808080;
+    border-radius: 6px;
+}
+
+#drop-down-board-overlay-content::-webkit-scrollbar-track {
+    background-color: #f2f2f2;
+}
+
+#drop-down-board-overlay-content::-webkit-scrollbar-button:start,
+#drop-down-content::-webkit-scrollbar-button:end {
+    display: none;
+}
+
+.dropdown-span-block {
+    display: flex;
+    gap: 10px;
+}
+
+#assign-search-board-overlay-input {
+    border: none;
+    height: 100%;
+    width: 100%;
+    z-index: 10;
+}
+
+#due-date-board-overlay-input {
+    border: none;
+    width: 100%;
+}
+
+#due-date-board-overlay-input::placeholder {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    color: #D1D1D1;
+}
+
+#div-board-overlay-dateformchange {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid #D1D1D1;
+    border-radius: 10px;
+    padding: 12px 16px 12px 16px;
+    background-color: white;
+    height: 50px;
+}
+
+.add-board-right-column {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.prio-buttons-board-overlay-div {
+    display: flex;
+    gap: 16px;
+}
+
+#prio-board-overlay-div {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.priority-board-overlay-button {
+    width: 136px;
+    height: 56px;
+    cursor: pointer;
+    background-color: white;
+    border: 1px solid #D1D1D1;
+    padding: 16px 10px 16px 10px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    user-select: none;
+}
+
+.priority-board-overlay-button:hover {
+    box-shadow: 1px 4px 4px 1px rgba(0, 0, 0, 0.1);
+}
+
+#category-board-overlay-div {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.category-border-div {
+    border: 1px solid #D1D1D1;
+    padding: 12px 16px 12px 16px;
+    border-radius: 10px;
+    background-color: white;
+}
+
+.category-board-overlay-flex {
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+#subtasks-board-overlay-div {
+    text-align: left;
+}
+
+#subtask-input-board-overlay-div {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid #D1D1D1;
+    padding: 12px 16px 12px 16px;
+    border-radius: 10px;
+    gap: 4px;
+    background-color: white;
+    height: 50px;
+}
+
+#subtask-input-board-overlay-field {
+    border: none;
+    flex: 1;
+    padding-top: 10px;
+    background-repeat: no-repeat;
+    background-position: center right;
+}
+
+#subtask-input-board-overlay-field:focus {
+    padding: unset;
+}
+
+#subtask-add-board-overlay-button {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+.created-board-overlay-subtasks {
+    margin-bottom: 5px;
+}
+
+.unselectable {
+    user-select: none;
+}
+
+#urgent-board-overlay-button:focus {
+    background-color: #FF3D00;
+}
+
+#medium-board-overlay-button:focus {
+    background-color: #FFA800;
+}
+
+#low-board-overlay-button:focus {
+    background-color: #7AE229;
+}
+
+#subtasks-board-overlay-div {
+    text-align: left;
+}
+
+#created-board-overlay-subtasks {
+    height: 150px;
+    padding-left: 20px;
+    margin-bottom: 50px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+

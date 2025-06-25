@@ -1,0 +1,486 @@
+#add-task-section {
+    margin-top: 96px;
+    width: 100%;
+    max-height: 89vh;
+}
+
+.subtasks-images-before-hover {
+    align-content: center;
+}
+
+.addTaskDiv {
+    height: 100dvh;
+    position: relative;
+    bottom: 0px;
+    padding-top: 32px;
+    margin-left: 250px;
+}
+
+h1 {
+    font-size: 61px;
+    font-weight: 700;
+    line-height: 73.2px;
+}
+
+#add-task-form {
+    display: flex;
+    flex-direction: column;
+    padding-right: 10%;
+}
+
+#upper-form {
+    margin-top: 66px;
+    width: 100%;
+    display: flex;
+    margin-bottom: -50px;
+}
+
+#title-div {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 14px;
+    width: 100%;
+}
+
+#add-task-title-input {
+    padding: 12px 21px 12px 21px;
+    border: 1px solid #D1D1D1;
+    border-radius: 10px;
+}
+
+.red-bg{
+align-content: center;
+padding-left: 10px;
+}
+
+
+#upper-form-left {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    border-right: 1px solid black;
+    width: 50%;
+    padding-right: 32px;
+}
+
+#lower-form-left,
+#lower-form-right {
+    height: 80px;
+}
+
+.add-task-font-styling {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    width: 100%;
+}
+
+#description-div {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-bottom: 14px;
+    width: 100%;
+}
+
+.add-task-placeholder-font-styling::placeholder {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    color: #D1D1D1;
+}
+
+#contact-to-assign {
+    display: flex;
+    justify-content: space-between;
+    border: none;
+    width: 400px;
+}
+
+#assign-holder {
+    width: 440px;
+    padding: 12px 16px 12px 16px;
+    border: 1px solid #D1D1D1;
+    border-radius: 10px;
+}
+
+#add-task-description-textarea {
+    height: 120px;
+    padding: 18px 16px 18px 16px;
+    border: 1px solid #D1D1D1;
+    border-radius: 10px;
+}
+
+.category-flex {
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.category-border-div {
+    border: 1px solid #D1D1D1;
+    padding: 12px 16px 12px 16px;
+    border-radius: 10px;
+    background-color: white;
+}
+
+#assigned-dropdown-div {
+    width: 100%;
+    height: 48px;
+    border: 1px solid #D1D1D1;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px 12px 16px;
+    cursor: pointer;
+    user-select: none;
+    background-color: white;
+}
+
+#assign-search-input {
+    border: none;
+    height: 100%;
+    width: 100%;
+    z-index: 10;
+}
+
+#upper-form-right {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 50%;
+    padding-left: 32px;
+}
+
+#div-dateformchange {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-items: center;
+    border: 1px solid #D1D1D1;
+    border-radius: 10px;
+    background-color: white;
+    position: relative;
+}
+
+#due-date-input {
+    border: none;
+    width: 100%;
+}
+
+#calendar-image {
+    height: 20px;
+    margin-right: 15px;
+}
+
+#due-date-input::placeholder {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    color: #D1D1D1;
+}
+
+#drop-down-content {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 8px 0px 8px;
+    max-height: 150px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    z-index: 5;
+}
+
+#drop-down-content::-webkit-scrollbar {
+    width: 4px;
+}
+
+#drop-down-content::-webkit-scrollbar-thumb {
+    background-color: #808080;
+    border-radius: 6px;
+}
+
+#drop-down-content::-webkit-scrollbar-track {
+    background-color: #f2f2f2;
+}
+
+#drop-down-content::-webkit-scrollbar-button:start,
+#drop-down-content::-webkit-scrollbar-button:end {
+    display: none;
+}
+
+.f-btw:checked {
+    background-color: #2A3647;
+}
+
+.initials-dropdown-styling {
+    width: 32px;
+    height: 32px;
+    font-size: 12px;
+    border: 1px solid white;
+    border-radius: 50%;
+    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+#lower-form {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+}
+
+.f-btw {
+    border-radius: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 4px 8px;
+}
+
+.f-btw:hover {
+    background-color: #D9D9D9;
+    scale: 101%;
+}
+
+.block {
+    display: inline;
+}
+
+.red-star-styling {
+    color: red;
+}
+
+.priority-button {
+    width: 136px;
+    height: 56px;
+    cursor: pointer;
+    background-color: white;
+    border: 1px solid #D1D1D1;
+    padding: 16px 10px 16px 10px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    user-select: none;
+}
+
+.priority-button:hover {
+    box-shadow: 1px 4px 4px 1px rgba(0, 0, 0, 0.1);
+}
+
+#subtask-input-div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #D1D1D1;
+    border-radius: 10px;
+    background-color: white;
+    position: relative;
+}
+
+.dropdown-span-block {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-align: center;
+}
+
+.dropdown-span-block span {
+    display: flex;
+    align-items: center;
+}
+
+#subtask-input-field {
+    border: none;
+    flex: 1;
+    
+    padding-top: 21px;
+}
+
+#lower-form {
+    margin-top: 100px;
+}
+
+#prio-div {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+#clear-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #2A3647;
+    border: 1px solid #2A3647;
+    padding: 16px;
+    border-radius: 10px;
+    width: 110px;
+    height: 56px;
+    background-color: #F6F7F8;
+}
+
+#lower-form-right {
+    display: flex;
+    gap: 16px;
+}
+
+#create-task-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #2A3647;
+    width: 183px;
+    height: 56px;
+    border-radius: 10px;
+    padding: 16px;
+    gap: 4px;
+    color: white;
+}
+
+.create-task-button-styling {
+    font-weight: 700;
+    font-size: 21px;
+    line-height: 25.2px;
+}
+
+#prio-buttons-div {
+    display: flex;
+    gap: 16px;
+}
+
+#category-div {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.red-border {
+    border: 1px solid red;
+}
+
+.add-task-title-input {
+    padding: 12px 21px 12px 21px;
+    border: 1px solid #D1D1D1;
+    border-radius: 10px;
+}
+
+#subtask-add-button {
+    width: 17px;
+    height: 17px;
+    cursor: pointer;
+    height: 20px;
+    width: 20px;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+img,
+button {
+    cursor: pointer;
+}
+
+.d-none {
+    display: none !important;
+}
+
+.toggle-prio-button.selected {
+    background-color: red;
+    color: #ffffff;
+}
+
+#subtasks-column {
+    display: flex;
+    flex-direction: column;
+}
+
+#subtasks-div {
+    text-align: left;
+}
+
+.created-subtask {
+    margin-bottom: 50px;
+}
+
+.delete-subtask {
+    cursor: pointer;
+    color: red;
+    margin-left: 5px;
+}
+
+.task-added-information {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #2A3647;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 16px;
+    cursor: pointer;
+    transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+    opacity: 0;
+}
+
+.task-added-information.visible {
+    top: 50%;
+    opacity: 1;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    color: white
+}
+
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+#assigned-contacts-after-choosing{
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+#created-subtasks{
+    margin-top: 16px;
+    margin-bottom: 16px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    max-height: 100px;
+    min-height: 20px;
+}
+
+
+.created-subtask-div-styling{
+display: flex;
+justify-content: space-between;
+
+}
+
+.created-subtask-div-styling:hover{
+    background-color: #e7e7e7;
+}
+
+.created-subtask-pencil-image{
+    padding-right: 20px;
+}
+
+.created-subtask-pencil-image:hover{
+    scale:110%;
+    cursor: pointer;
+}
+
+.created-subtask-bin-image{
+padding-right: 10px;
+}
+
+.created-subtask-bin-image:hover{
+    scale:110%;
+    cursor: pointer;
+}

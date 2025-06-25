@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Task</title>
+    <link rel="shortcut icon" href="../img/favicon.svg" type="image/x-icon">
+    <link rel="stylesheet" href="../css/aside_and_head_style.css">
+    <link rel="stylesheet" href="../css/add_task_n_include.css">
+    <link rel="stylesheet" href="../css/contact.css">
+    <link rel="stylesheet" href="../css/mediaQuerry.css">
+    <link rel="stylesheet" href="../css/style.css">
+
+    <script src="../JavaScript/data.js" defer></script>
+    <script src="../JavaScript/script.js" defer></script>
+    <script src="../JavaScript/signUp.js" defer></script>
+    <script src="../JavaScript/summary.js" defer></script>
+    <script src="../JavaScript/addTaskHTMLTemplate.js" defer></script>
+    <script src="../JavaScript/include.js" defer></script>
+    <script src="../JavaScript/add_task.js" defer></script>
+</head>
+
+<body onload="initUser(), initInputDateAddTask(), initializePriorityButton()">
+    <header w3-include-html="../templates/header.html">
+    </header>
+    <div class="submenuContainer d-none" id="submenuContainer" onclick="closeDropdownMenu()">
+        <div class="submenu" onclick="stopPropagation(event)">
+            <ul>
+                <a href="legalNotice.html">Legal Notice</a>
+                <a href="privacyPolicy.html">Privacy Policy</a>
+                <a href="index.html">Log Out</a>
+            </ul>
+        </div>
+    </div>
+    <aside w3-include-html="../templates/aside.html">
+    </aside>
+    <main id="add-task-section">
+        <div class="addTaskDiv">
+            <h1>Add Task</h1>
+            <form id="add-task-form" onsubmit="addTask(); return false">
+                <div>
+                    <div id="upper-form">
+                        <div id="upper-form-left">
+                            <div id="title-div">
+                                <div id="title-title-div">
+                                    <span class="add-task-font-styling">Title</span>
+                                    <span class="red-star-styling">*</span>
+                                </div>
+                                <input required id="add-task-title-input" class="add-task-placeholder-font-styling"
+                                    placeholder="Enter a title">
+                            </div>
+                            <div id="description-div">
+                                <span class="add-task-font-styling">Description</span>
+                                <textarea id="add-task-description-textarea" class="add-task-placeholder-font-styling"
+                                    placeholder="Enter a Description"></textarea>
+                            </div>
+                            <div id="assigned-to-div" class="add-task-font-styling">
+                                <span class="add-task-font-styling">Assigned to</span>
+                                <div id="assigned-dropdown-div" onclick="toggleDropDown()">
+                                    <span class="add-task-font-styling">Select contacts to assign</span>
+                                    <img id="drop-down-arrow" src="../img/add_task/arrow_drop_down.svg">
+                                </div>
+                                <div id="drop-down-content">
+                                </div>
+                            </div>
+                            <div id="assigned-contacts-after-choosing">    
+                            </div>
+                        </div>
+                        <div id="upper-form-right">
+                            <div id="due-date-div">
+                                <div>
+                                    <span class="add-task-font-styling">Due date</span>
+                                    <span class="red-star-styling">*</span>
+                                </div>
+                                <div id="div-dateformchange">
+                                    <input id="due-date-input" oninput="validateDate(this)" onfocus="(this.type='date')" onblur="(this.type='text')"
+                                        placeholder="dd/mm/yyyy" max="2100-12-31" required>
+                                </div>
+                            </div>
+                            <div id="prio-div">
+                                <div id="heading-prio-div">
+                                    <span class="add-task-font-styling">Prio</span>
+                                </div>
+                                <div id="prio-buttons-div">
+                                    <button class="priority-button toggle-prio-button" id="urgent-button">
+                                        <span class="add-task-font-styling">Urgent
+                                        </span>
+                                        <img id="urgent-image" src="../img/add_task/urgent-red.svg">
+                                    </button>
+                                    <button class="priority-button toggle-prio-button" id="medium-button">
+                                        <span class="add-task-font-styling">Medium
+                                        </span>
+                                        <img id="medium-image" src="../img/add_task/equity_yellow.svg">
+                                    </button>
+                                    <button class="priority-button toggle-prio-button" id="low-button">
+                                        <span class="add-task-font-styling">Low</span>
+                                        <img id="low-image" src="../img/add_task/low-green.svg">
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="category-div">
+                                <label for="contacts-assignment">
+                                    <span class="add-task-font-styling">Category</span>
+                                    <span class="red-star-styling">*</span>
+                                </label>
+                                <div class="category-border-div">
+                                    <select required id="task-category-select" name="assignment"
+                                        class="category-flex add-task-font-styling">
+                                        <option>Select Task Category</option>
+                                        <option value="Technical Task">Technical Task</option>
+                                        <option value="User Story">User Story</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div id="subtasks-div">
+                                <span class="add-task-font-styling" id="subtask-title-span">Subtask</span>
+                                <div id="subtask-input-div">
+                                    <input class="add-task-font-styling" id="subtask-input-field"
+                                        placeholder="Add new Subtask">
+                                    <img onclick="addNewSubtask()" id="subtask-add-button"
+                                        src="../img/add_task/add.svg">
+                                </div>
+                                <div id="created-subtasks"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="lower-form">
+                        <div id="lower-form-left">
+                            <span class="red-star-styling">*</span>
+                            <span>This field is required</span>
+                        </div>
+                        <div id="lower-form-right">
+                            <button id="clear-button"><span class="add-task-font-styling">Clear</span><img
+                                    id="clear-button-close-image" src="../img/add_task/cancel_image.svg"></button>
+                            <button id="create-task-button" disabled><span
+                                    class="create-task-button-styling">Create Task</span><img
+                                    id="create-task-button-image" src="../img/add_task/check.svg"></button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </main>
+    <button id="success-button" class="task-added-information">
+        <span class="task-added-nformation-span">Task added to board</span>
+    </button>
+</body>
+
+</html>

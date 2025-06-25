@@ -1,0 +1,378 @@
+#content-summary {
+    position: fixed;
+    top: 206px;
+    left: 328px;
+    margin-bottom: 16px;
+}
+
+#summary-heading {
+    font-weight: 700;
+    font-size: 61px;
+    line-height: 73.2px;
+    color: black;
+}
+
+#vertical-blue-line {
+    height: 59px;
+    background-color: #29ABE2;
+    width: 3px;
+}
+
+.on-hover-pencil {
+    fill: black;
+}
+
+#head-summary {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+#keymetrics-subheading {
+    font-weight: 400;
+    font-size: 27px;
+    line-height: 32.4px;
+    color: black;
+}
+
+#lower-main-summery {
+    display: flex;
+    align-items: center;
+    gap: 80px;
+    padding-top: 40px;
+}
+
+#left-lower-main {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+    width: 560px;
+    height: 562px;
+}
+
+#left-first-line {
+    width: 100%;
+    height: 168px;
+    display: flex;
+    justify-content: space-between;
+    gap: 18px;
+}
+
+#first-line-left-div {
+    display: flex;
+    height: 168px;
+    width: 264px;
+    justify-content: center;
+    align-items: center;
+    padding: 38px 19px 38px 19px;
+    border-radius: 30px;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.1);
+    gap: 18px;
+    cursor: pointer;
+}
+
+.darken-div {
+    background-color: #2A3647;
+    transform: scaleX(110%), scaleY(110%);
+    transition-delay: 80ms;
+}
+
+#summary-to-do-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#amount-of-to-do {
+    font-weight: 600;
+    font-size: 64px;
+    line-height: 76.8px;
+    color: #000000;
+}
+
+#to-do-span {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+}
+
+.summary-firstline-imagesize {
+    width: 69px;
+    height: 69px;
+}
+
+#first-line-right-div {
+    display: flex;
+    height: 168px;
+    width: 264px;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+    border-radius: 30px;
+    padding: 38px 58px 38px 58px;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+#summary-done-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#amount-of-to-do {
+    font-weight: 600;
+    font-size: 64px;
+    line-height: 76.6px;
+    color: #000000;
+    text-align: center
+}
+
+#summary-amount-done {
+    font-weight: 600;
+    font-size: 64px;
+    line-height: 76.8px;
+    text-align: center;
+    color: #000000;
+}
+
+#summary-done-span {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    text-align: center;
+    color: #2A3647;
+}
+
+#to-do-span {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    color: #2A3647;
+    text-align: center
+}
+
+.color-white {
+    color: white !important;
+}
+
+.new-styling {
+    color: red;
+}
+
+.background-white {
+    background-color: white !important;
+}
+
+.darken-div {
+    background-color: #2A3647;
+    transform: scaleX(110%), scaleY(110%);
+    transition-delay: 80ms;
+}
+
+#left-second-line {
+    width: 560px;
+    height: 168px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 560px;
+    justify-content: space-evenly;
+    border-radius: 30px;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+#second-line-left-div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 18px;
+}
+
+#summary-amount-urgent {
+    font-weight: 600;
+    font-size: 64px;
+    line-height: 76.8px;
+}
+
+#summary-urgent-span {
+    color: #2A3647;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19.2px;
+}
+
+#second-line-seperateline-div {
+    background-color: #D1D1D1;
+    width: 2px;
+    height: 102.02px;
+}
+
+#second-line-right-div {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+    text-align: center;
+}
+
+#date-deadline {
+    font-weight: 700;
+    font-size: 21px;
+    line-height: 25.2px;
+    color: #2A3647;
+}
+
+#summary-deadline-span {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19.2px;
+    color: #2A3647;
+}
+
+#left-third-line {
+    display: flex;
+    flex-direction: row;
+    width: 560px;
+    justify-content: space-between;
+}
+
+#third-line-left-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 168px;
+    height: 168px;
+    padding: 25px 0px 25px 0px;
+    gap: 13px;
+    border-radius: 30px;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.1);
+}
+
+#third-line-middle-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 168px;
+    height: 168px;
+    padding: 25px 0px 25px 0px;
+    gap: 13px;
+    border-radius: 30px;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.1);
+}
+
+#third-line-right-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 168px;
+    height: 168px;
+    padding: 25px 0px 25px 0px;
+    gap: 13px;
+    border-radius: 30px;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.1);
+}
+
+.third-line-number-style {
+    font-weight: 600;
+    font-size: 64px;
+    line-height: 76.8px;
+    text-align: center;
+    color: #000000;
+}
+
+#third-line-left-div:hover * {
+    transition-delay: 80ms;
+    color: white;
+}
+
+#third-line-left-div:hover {
+    background-color: #2A3647;
+    transition-delay: 80ms;
+    cursor: pointer;
+}
+
+#third-line-middle-div:hover * {
+    color: white;
+    transition-delay: 80ms;
+}
+
+#third-line-middle-div:hover {
+    background-color: #2A3647;
+    transition-delay: 80ms;
+    cursor: pointer;
+}
+
+#third-line-right-div:hover * {
+    transition-delay: 80ms;
+    color: white;
+}
+
+#third-line-right-div:hover {
+    background-color: #2A3647;
+    transition-delay: 80ms;
+    cursor: pointer;
+}
+
+.third-line-span-style {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    color: #2A3647;
+    text-align: center;
+    max-width: 83px;
+}
+
+#greeting-with-daytime {
+    font-weight: 500;
+    font-size: 47px;
+    line-height: 56.4px;
+    color: #2A3647;
+}
+
+#greeting-username {
+    font-weight: 700;
+    font-size: 64px;
+    line-height: 76.8px;
+    color: #29ABE2;
+}
+
+#right-lower-main {
+    display: flex;
+    flex-direction: column;
+}
+
+#image-task {
+    width: 60px;
+    height: 60px;
+}
+
+#summary-urgent-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.greetingAnimation {
+    padding: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 100px 0px;
+    background-color: white;
+    opacity: 1;
+    animation: 1.5s greeting ease-in-out forwards;
+    animation-delay: 500ms;
+}
+
+@keyframes greeting {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}

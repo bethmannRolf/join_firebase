@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contacts</title>
+  <link rel="shortcut icon" href="../img/favicon.svg" type="image/x-icon">
+  <link rel="stylesheet" href="../css/board.css" />
+  <link rel="stylesheet" href="../css/aside_and_head_style.css" />
+  <link rel="stylesheet" href="../css/mediaQuerry.css">
+  <link rel="stylesheet" href="../css/fonts.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/contact.css" />
+  <script src="../JavaScript/script.js" defer></script>
+  <script src="../JavaScript/signUp.js" defer></script>
+  <script src="../JavaScript/data.js" defer></script>
+  <script src="../JavaScript/summary.js" defer></script>
+  <script src="../JavaScript/board.js" defer></script>
+  <script src="../JavaScript/contactHTMLTemplate.js" defer></script>
+  <script src="../JavaScript/contact.js" defer></script>
+  <script src="../JavaScript/include.js" defer></script>
+</head>
+
+<body onload="render()">
+  <header w3-include-html="../templates/header.html"></header>
+
+  <div class="submenuContainer d-none" id="submenuContainer" onclick="closeDropdownMenu()">
+    <div class="submenu" onclick="stopPropagation(event)">
+      <ul>
+        <a href="legalNotice.html">Legal Notice</a>
+        <a href="privacyPolicy.html">Privacy Policy</a>
+        <a href="index.html">Log Out</a>
+      </ul>
+    </div>
+  </div>
+
+  <aside class="" w3-include-html="../templates/aside.html"></aside> 
+
+  <section class="nav-mobile d-none" w3-include-html="../templates/asideMobile.html"></section>
+
+  <div class="d-flex hide-mobile"> 
+    <div class="contact-left-side background-color-white">
+      <button class="textbutton" onclick="openAddContactPopup()">
+        Add new contact
+        <img src="../img/person_add_white.svg" alt="add contact">
+      </button>
+      <div id="contactList"></div>
+    </div>
+    <div class="contact-right-side">
+      <div class="contact-header">
+        <h1 class="font-size-headline">Contacts</h1>
+        <div class="blue-line"></div>
+        <p class="font-size-paragraph">Better with a Team</p>
+      </div>
+      <div id="current-contact"></div>
+    </div>
+  </div>
+  <!--PopUp ADDContact -->
+  <div class="darkBackgroundContainer d-none" id="darkBackgroundContainer"onclick="closeAddContactPopup(), closeEditContactPopup()">
+  </div>
+  <div id="addContactPopup" class="hide-mobile d-none" >
+    <div class="addContactPopup hide-mobile" onclick="stopPropagation(event)">
+      <div class="addContactLeftSide">
+        <div class="addContactLeftSideImage">
+          <img src="../img/joinLogoWhite.svg" />
+        </div>
+        <div class="addContactLeftSideTextLine">
+          <div class="addContactLeftSideText">
+            <span>Add contact</span>
+            <span>Tasks are better with a team!</span>
+          </div>
+        </div>
+      </div>
+      <div class="addContactRightSide">
+        <div class="closePopup" onclick="closeAddContactPopup()">
+          <img src="../img/x.svg" alt="" />
+        </div>
+
+        <!-- Form That works -->
+        <form onsubmit="createNewContact(); return false;" class="createContactSection">
+          <input required id="newContactName" type="text" placeholder="Name" >
+          <input required id="newContactEmail" placeholder="Email"  type="text">
+          <input required id="newContactPhone" placeholder="Phone"  type="tel" pattern="[0-9]{10,14}" minlength="10" maxlength="14">
+          <div class="buttonsForAddContact">
+            <button type="button" onclick="closeAddContactPopup()" class="cancelButton">
+              <div>
+                <p>Cancel</p>
+                <img class="cancelX" src="../img/x.svg" alt="" />
+              </div>
+            </button>
+            <button class="createContactButton">
+              <div>
+                <p>Create contact</p>
+                <img src="../img/check.svg" alt="" />
+              </div>
+            </button>
+          </div>
+        </form>
+        <div class="addContactIcon">
+          <img src="../img/contactProfileImage.svg" alt="" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--PopUp für Contact Edit -->
+  <div id="editContactPopup" class="hide-mobile d-none" onclick="closeEditContactPopup()">
+    <div class="addContactPopup hide-mobile" onclick="stopPropagation(event)">
+      <div class="addContactLeftSide">
+        <div class="addContactLeftSideImage">
+          <img src="../img/joinLogoWhite.svg" />
+        </div>
+        <div class="editContactLeftSideTextLine">
+          <div class="editContactLeftSideText">
+            <span>Edit contact</span>
+          </div>
+        </div>
+      </div>
+      <div class="addContactRightSide">
+        <div class="closePopup" onclick="closeEditContactPopup()">
+          <img src="../img/x.svg" alt="" />
+        </div>
+
+        <form onsubmit="saveCurrentContact(); return false;" class="createContactSection">
+          <input id="editContactName" required type="text" placeholder="Name" />
+          <input id="editContactEmail" required type="email" placeholder="Email" />
+          <input id="editContactPhone" required type="tel" placeholder="Phone" />
+          <div class="buttonsForAddContact">
+            <button type="button" onclick="deleteCurrentContact()" class="cancelButton">
+              <div>
+                <p>Delete</p>
+                <img class="cancelX" src="../img/x.svg" alt="" />
+              </div>
+            </button>
+            <button class="createContactButton">
+              <div>
+                <p>Save</p>
+                <img src="../img/check.svg" alt="" />
+              </div>
+            </button>
+          </div>
+        </form>
+        <div id="editContactIconDiv" class="addContactIcon"></div>
+      </div>
+    </div>
+  </div>
+
+  <!--PopUp für Contact Succesfully Created -->
+  <div id="contactSuccesfullyCreatedPopUp" class="succesfullyCreatedPopUp slideOut hide-mobile d-none">
+    <span>Contact succesfully created</span>
+  </div>
+  <!--PopUp für Contact Succesfully Created Mobile -->
+  <div id="contactSuccesfullyCreatedPopUpMobile" class="succesfullyCreatedPopUpMobile slideOut d-none">
+    <span>Contact succesfully created</span>
+  </div>
+  <!-- Div's for Mobile Version Contacts  -->
+  <button id="mobileAddContactButton" class="textbutton-mobile" onclick="openAddContactPopup()">
+    <img id="addContactButton" src="../img/person_add.svg" alt="add contact">
+  </button>
+
+  <div onclick="closeAddContactPopup()" id="addContactPopupMobile" class="addContactPopupMobile d-none">
+    <div onclick="stopPropagation(event)" class="addContactLeftSideMobile">
+      <div class="addContactLeftSideTextLine">
+        <div class="addContactLeftSideText">
+          <span>Add contact</span>
+          <span>Tasks are better with a team!</span>
+        </div>
+      </div>
+      <div class="closePopup d-none" onclick="closeAddContactPopup()">
+        <img src="../img/x_white.svg" alt="" />
+      </div>
+      <div class="addContactIcon d-none">
+          <img src="../img/contactProfileImage.svg" alt="" />
+      </div>
+    </div>
+    <div onclick="stopPropagation(event)" class="addContactRightSideMobile">
+      <form onsubmit="createNewContact(); return false;" class="createContactSection">
+        <input id="newContactNameMobile" required type="text" placeholder="Name" />
+        <input id="newContactEmailMobile" required type="email" placeholder="Email" />
+        <input id="newContactPhoneMobile" required type="tel" placeholder="Phone" pattern="[0-9]{10,14}" minlength="10" maxlength="14"  />
+        <div class="buttonsForAddContact">
+          <button class="createContactButton">
+              <p>Create contact</p>
+              <img src="../img/check.svg" alt="" />
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div onclick="closeEditContactPopup()" id="editContactPopupMobile" class="editContactPopupMobile d-none">
+    <div onclick="stopPropagation(event)" class="addContactLeftSideMobile">
+        <div class="addContactLeftSideImage">
+          <img src="../img/joinLogoWhite.svg" />
+        </div>
+        <div class="editContactLeftSideTextLine">
+          <div class="editContactLeftSideText">
+            <span>Edit contact</span>
+          </div>
+        </div>
+        <div class="closePopup" onclick="closeEditContactPopup()">
+          <img src="../img/x_white.svg" alt="" />
+        </div>
+    </div>
+
+    <div onclick="stopPropagation(event)" class="addContactRightSideMobile">
+      <form onsubmit="saveCurrentContact(); return false;" class="createContactSection">
+        <input id="editContactNameMobile" required type="text" placeholder="Name" />
+        <input id="editContactEmailMobile" required type="email" placeholder="Email" />
+        <input id="editContactPhoneMobile" required type="tel" pattern="[0-9]{10,14}" minlength="10" maxlength="14" placeholder="Phone" />
+        <div class="buttonsForAddContact">
+          <button class="createContactButton">
+            <div>
+              <p>Save</p>
+              <img src="../img/check.svg" alt="" />
+            </div>
+          </button>
+        </div>
+      </form>
+      <div id="editContactIconDivMobile" class="addContactIcon"></div>
+    </div>
+  </div>
+  
+  <div id="backgroundContactOptions" class="d-none" onclick="closeContactOptions()"></div>
+  <div id="contactHeaderMobile" class="contact-header d-none">
+    <h1 class="font-size-headline">Contacts</h1>
+    <p class="font-size-paragraph">Better with a Team</p> 
+    <div class="blue-line"></div>
+    <div onclick="goBackToMobileContactList()"><img id="arrowLeft" src="../img/arrowLeft.svg" alt=""></div>  
+  </div>
+  <div id="currentContactMobile" class="currentContactMobile d-none"></div>
+  <button id="editCurrentContactButton" class="textbutton-mobile d-none" onclick="openContactOptions()">
+    <img id="currentContactButton" src="../img/mobileMenuCurrentContact.svg" alt="add contact">
+  </button>
+
+  <div id="contactOptions" class="contactOptions d-none">
+    <div onclick="editCurrentContact(currentContactId)" class="editMobile"><img id="editIconMobile" src="../img/edit.svg" alt=""> <span>Edit</span></div>
+    <div onclick="deleteCurrentContact(currentContactId)" class="deleteMobile"><img id="deleteIconMobile" src="../img/delete.svg" alt=""> <span>Delete</span></div>
+  </div>
+</body>
+</html>

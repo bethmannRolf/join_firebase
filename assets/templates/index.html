@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join</title>
+    <link rel="shortcut icon" href="../img/favicon.svg" type="image/x-icon">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/mediaQuerry.css">
+    <link rel="stylesheet" href="../css/fonts.css">
+    <link rel="stylesheet" href="../css/summary.css">
+    <script src="../JavaScript/signUp.js" defer></script>
+    <script src="../JavaScript/data.js" defer></script>
+    <script src="../JavaScript/script.js" defer></script>
+</head>
+
+<body onload="loadUsers()">
+    <img class="logoLoginImage" src="../img/logoLoginPage.svg">
+    
+    <div class="loginFrame" id="loginFrame">
+        <div class="loginHeadline">
+            
+            <p>Log in</p>
+        </div>
+        <form onsubmit="loginUser(); return false;" class="loginForm" id="loginForm">
+            <div class="loginInputs">
+                <div class="inputField">
+                    <div class="emailField">
+                        <div class="inputFrame">
+                            <input required type="email" placeholder="Email" id="loginEmail">
+                            <img src="../img/mail.svg">
+                        </div>
+                    </div>
+                    <div class="passwordField">
+                        <div class="inputFrame">
+                            <input required type="password" placeholder="Password" id="loginPassword">
+                            <img src="../img/lock.svg">
+                        </div>
+                    </div>
+                    <div class="wrongPassword d-none" id="wrongPassword">
+                        <span>Wrong E-Mail or Password. Please try again!</span>
+                    </div>
+                </div>
+                <div class="remeberMeSection" id="rememberMe">
+                    <div class="checkboxImage">
+                        <img onclick="changeCheckbox()" id="notChecked" class="checkbox"
+                            src="../img/uncheckedNew.svg" alt="">
+                        <img onclick="changeCheckbox()" id="checked" class="checkbox d-none"
+                            src="../img/checkedNew.svg" alt="">
+                    </div>
+                    <p>Remember me</p>
+                </div>
+            </div>
+            <div class="loginButtons">
+                <button class="loginButton">Log in</button>
+                <button type="button" onclick="guestLogin(event)" class="guestLoginButton">Guest Log in</button>
+            </div>
+        </form>
+    </div>
+    <div class="signUpFromLoginPage">
+        <p>Not a Join User?</p>
+        <div>
+            <a href="signUp.html"><button class="signUpButton">Sign up</button></a>
+        </div>
+    </div>
+    <div class="privacyPolicyContainer">
+        <a href="privacyPolicyExtern.html"><button>Privacy Policy</button></a>
+        <a href="legalNoticeExtern.html"><button>Legal notice</button></a>
+    </div>
+    <div class="greet d-none" id="greetUser">
+    </div>
+</body>
+
+</html>

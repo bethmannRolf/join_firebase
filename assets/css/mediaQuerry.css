@@ -1,0 +1,1144 @@
+/* For Board */
+
+@media (max-width: 1400px) {
+  #content-bord {
+    bottom: 0;
+    overflow: scroll;
+  }
+
+  #upper-board-column-heading {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    position: absolute;
+    gap: 234px;
+    bottom: 0;
+    top: 229px;
+    height: 100vh;
+  }
+
+  #tasks-div {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    position: absolute;
+    top: 262px;
+    gap: 70px;
+    padding-bottom: 32px;
+    width: 100%;
+  }
+
+  .task-column {
+    width: 100%;
+    max-height: unset;
+  }
+
+  #greeting-username {
+    font-size: 38px;
+    line-height: 48px;
+  }
+
+  #greeting-with-daytime {
+    font-size: 40px;
+  }
+
+  #lower-main-summery {
+    gap: 40px;
+  }
+}
+
+@media (max-width: 750px) {
+  #board-input-div {
+    position: absolute;
+    top: 180px;
+    left: 50%;
+    transform: translate(-50%);
+    width: calc(100% - 64px);
+  }
+
+  #add-task-button span {
+    display: none;
+  }
+}
+
+@media (max-height: 700px) {
+  .privacyPolicyContainer {
+    position: absolute;
+    bottom: 0px;
+  }
+}
+
+/* Large Sizes */
+
+@media (max-width: 1200px) {
+  .signUpFromLoginPage {
+    right: 100px;
+  }
+
+  /* Summary */
+
+  #lower-main-summery {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  #content-summary {
+    position: fixed !important;
+    margin-inline: auto;
+    left: 260px !important;
+    bottom: 0;
+    /* padding-bottom: 24px; */
+    /* margin-bottom: 24px; */
+    overflow-y: auto;
+    margin-top: -48px;
+    margin-inline: auto;
+    right: 0;
+    top: 145px;
+    padding-top: 20px;
+  }
+
+  .headerLogoResponsive {
+    display: none;
+  }
+
+  /* Add Task */
+
+  #add-task-section {
+    overflow-y: scroll;
+  }
+
+  /* #add-task-form {
+    overflow: scroll;
+  } */
+
+  #upper-form {
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    flex-direction: column;
+  }
+
+  #upper-form-left {
+    border: none;
+    width: 100%;
+    padding-right: 0px;
+  }
+
+  #upper-form-right {
+    width: 100%;
+    padding-top: 16px;
+    padding-left: 0px;
+  }
+
+  #lower-form {
+    margin-bottom: 80px;
+    margin-top: 24px;
+    padding-top: 40px;
+  }
+
+  #prio-buttons-div {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  /* Contact */
+
+  .contact-header {
+    display: flex;
+    flex-direction: column;
+    align-items: start !important;
+    /* height: calc(100vh - 200px) !important; */
+    gap: 4px !important;
+    padding-left: 60px;
+
+  }
+
+  .contact-header h1{
+    padding: 0px;
+    font-size: 46px;
+
+  }
+
+  .font-size-paragraph {
+    font-size: 20px !important;
+  }
+
+  .blue-line {
+    height: 2px !important;
+    width: 120px;
+    order: 1;
+    margin-top: 8px;
+
+  }
+}
+
+/* Laptop */
+
+@media (max-width: 1024px) {
+  .submenuContainer {
+    padding: 100px 24px 0 0;
+  }
+
+  /* Login Page  */
+  .signUpFromLoginPage {
+    position: absolute;
+    margin-inline: auto;
+    top: auto;
+    bottom: 180px;
+    /* width: 100vw; */
+    right: auto;
+  }
+
+  .loginFrame {
+    width: 77%;
+  }
+
+  .privacyPolicyContainer {
+    bottom: 50px;
+  }
+
+  @keyframes identifier {
+    from {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 50vw;
+      height: 70vh;
+    }
+    to {
+      position: absolute;
+      top: 30px;
+      left: 77px;
+      width: 80px;
+      height: 122px;
+      transform: none;
+    }
+  }
+
+  .signUpFromLoginPage {
+    width: 292px;
+    height: 49px;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    margin-inline: auto;
+    bottom: 80px;
+  }
+
+  .privacyPolicyContainer {
+    height: 35px;
+    bottom: 8px;
+    gap: 8px;
+  }
+
+  /* Sign up Page */
+
+  .logoSignUpImage {
+    position: absolute;
+    top: 22px;
+    left: 38px;
+    width: 64px;
+    height: 78px;
+  }
+
+  /* Summary */
+
+  #summary-list-element{
+    order: 0;
+  }
+
+  #board-list-element {
+    order: 0;
+  }
+
+  #addTask-list-element{
+    order: 1;
+  }    
+  
+
+  #contacts-list-element {
+    order: 3;
+  }
+
+  #amount-of-to-do,
+  #summary-amount-done,
+  #summary-amount-urgent,
+  .third-line-number-style {
+    font-size: 47px;
+  }
+
+  #to-do-span,
+  #summary-done-span,
+  #summary-urgent-span,
+  .third-line-span-style {
+    font-size: 14px;
+  }
+
+  #third-line-left-div,
+  #third-line-middle-div,
+  #third-line-right-div {
+    padding: 0px;
+    gap: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .third-line-number-style,
+  .third-line-span-style {
+    line-height: normal;
+  }
+
+  #right-lower-main {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    background-color: rgba(246, 247, 248, 1);
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 64px;
+    opacity: 1;
+    animation: 3s greet ease-in-out forwards;
+    animation-delay: 0.5s;
+  }
+
+  @keyframes greet {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+      display: none;
+    }
+  }
+
+  #greeting-username {
+    font-size: 48px;
+  }
+
+  #summary-heading {
+    font-size: 42px !important;
+  }
+
+  #content-summary {
+    padding: 16px 16px 0px 16px;
+    margin-bottom: 116px;
+    top: 100px !important;
+    left: 0px !important;
+    right: 0px !important;
+    display: flex;
+    flex-direction: column;
+    bottom: 0px !important;
+    margin-top: 0px;
+  }
+
+  #lower-main-summery {
+    max-height: 445px;
+  }
+
+  #left-lower-main {
+    height: 485px;
+  }
+
+  #first-line-left-div,
+  #first-line-right-div,
+  #left-second-line,
+  #left-third-line div {
+    height: 130px;
+  }
+
+  aside {
+    position: fixed !important;
+    display: flex;
+    justify-content: center !important;
+    align-items: center;
+    padding: 16px !important;
+    bottom: 400px !important;
+    /* left: 0; */
+    right: 0;
+    bottom: 0 !important;
+    top: unset !important;
+    height: 100px !important;
+    z-index: 1;
+  }
+
+  nav {
+    padding: 0px !important;
+    width: 100%;
+  }
+  nav ul {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row !important;
+    gap: 0px !important;
+  }
+
+  nav ul li {
+    width: 20% !important;
+    padding: 0 !important;
+    height: 70px;
+    border-radius: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .list-nav-element {
+    padding: unset;
+    display: flex;
+    justify-content: center;
+  }
+
+  nav ul li a {
+    justify-content: center;
+  }
+
+  #legal-section {
+    display: none !important;
+  }
+
+  #join-logo-light {
+    display: none;
+  }
+
+  .headerLogoResponsive {
+    display: block !important;
+    height: 60px;
+    position: relative;
+  }
+
+  header {
+    display: flex;
+    justify-content: space-between !important;
+    padding: 20px 32px !important;
+    z-index: 1;
+    background-color: white;
+  }
+
+  header span {
+    display: none;
+  }
+
+  #header-right-side {
+    position: relative;
+  }
+
+  /* AddTask */
+
+  .addTaskDiv {
+    margin-left: 0px;
+  }
+
+  #add-task-section {
+    /* margin: 100px 0px 0px 0px !important; */
+    margin: 101px 0px !important;
+    padding: 0px 32px !important;
+    overflow-y: scroll !important;
+    max-height: 78vh !important;
+    width: 100%;
+  }
+
+  #add-task-form {
+    padding: 0px !important;
+    height: 90%;
+    display: flex;
+    justify-content: start;
+  }
+
+  #title-div,
+  #description-div,
+  #assigned-dropdown-div,
+  .add-task-font-styling {
+    width: 100%;
+  }
+
+  #prio-div {
+    align-items: center;
+  }
+
+  #prio-buttons-div {
+    height: fit-content;
+    justify-content: center;
+  }
+
+  #add-task-title-input {
+    width: 100% !important;
+  }
+
+  #upper-form {
+    margin-top: 16px !important;
+  }
+
+  #upper-form-right {
+    padding-left: 8px !important;
+  }
+
+  #lower-form {
+    display: flex;
+    align-items: center;
+    margin-top: 16px !important;
+    margin-bottom: 60px;
+  }
+
+  #content-bord {
+    left: 0;
+    top: 0;
+    max-height: 80vh;
+    margin-top: 100px;
+    bottom: 116px;
+  }
+
+  #tasks-div {
+    padding-bottom: 60px;
+    align-items: center;
+  }
+
+  /* Board */
+
+  .arrow-downward{
+    display: unset !important;
+    position: absolute;
+    right: 0;
+  }
+
+  .arrow-upward {
+    display: unset;
+    position: absolute;
+    right: 30px;
+  }
+
+  .arrowHeader {
+    position: relative;
+    width: 100%;
+    display: flex;
+}
+
+  .newTodo,
+  .newInProgress,
+  .newAwaitFeedback,
+  .newDone {
+    width: 100%;
+    /* display: flex; */
+  }
+
+  #to-do-heading-div,
+  #in-progress-heading-div,
+  #await-feedback-heading-div,
+  #done-heading-div {
+    width: 100%;
+  }
+
+  /* Legal Notice & Privacy Policy */
+
+  #arrowLeft {
+    position: fixed;
+    top: 139px;
+    right: 32px;
+    z-index: 2;
+  }
+
+  #arrowLeft:hover {
+    cursor: pointer;
+    background-color: lightgray;
+    border-radius: 50%;
+  }
+
+  .headline {
+    display: flex;
+    justify-content: start;
+    width: 100%;
+    /* height: 140px; */
+    /* padding-top: 16px; */
+    margin-top: 16px;
+  }
+
+  .headlinetext {
+    position: relative !important;
+    left: 0;
+    top: 0;
+  }
+
+  .legalNoticeContainer,
+  .privacyBox {
+    position: fixed;
+    overflow-y: scroll;
+    left: 0;
+    height: calc(100vh - 200px);
+    bottom: 100px;
+    width: 100%;
+    padding: 24px 24px 50px 24px; 
+  }
+
+  .privacyPolicy {
+    left: 0px;
+    top: 0px;
+    position: relative;
+    bottom: 0px;
+    margin-bottom: 100px;
+    /* padding: 0px 16px 16px 16px; */
+    flex-wrap: nowrap;
+    /* overflow-y: scroll; */
+    margin: 0px;
+    /* margin-top: -200px; */
+  }
+
+  .contact-left-side {
+    padding: 100px 0px 100px 0px !important;
+  }
+
+  .textbutton {
+    margin-top: 36px !important;
+  }
+
+  .taskdetail-container {
+    width: 100%;
+    height: calc(100vh - 199px);
+    border-radius: unset;
+    background-color: #F6F7F8;
+    overflow-y: scroll;
+    padding: 20px;
+  }
+
+  .taskdetail-title-span {
+    line-height: unset;
+  }
+
+  .scrollbar-edit {
+    padding: 0px 20px;
+  }
+
+  .fontstyle-edit {
+    height: 100px;
+  }
+
+  .edit-subtask-list-div {
+    margin-top: 16px;
+  }
+
+  .f-btw {
+    width: 100%;
+    padding-right: 16px;
+  }
+
+}
+
+@media (max-width: 1100px) {
+
+  .current-name {
+    font-size: 32px !important;
+  }
+
+  .current-userprofil {
+    width: 80px;
+    height: 80px;
+  }
+
+  .userprofil-top {
+    display: flex;
+    gap: 24px !important;
+}
+
+
+}
+
+@media (min-width: 1024px) {
+
+  .arrow-downward {
+    display: none;
+  }
+
+  .arrow-upward {
+    display: none;
+  }
+}
+/* Mobile  */
+
+@media (max-width: 400px) {
+  .backToLoginPageContainer {
+    left: 280px !important;
+  }
+
+  .logoSignUpImage {
+    z-index: 4;
+    scale: 0.7;
+    top: 75px !important;
+  }
+
+  .signUpHeadline {
+    scale: 0.7;
+  }
+
+  #prio-buttons-div {
+    gap: 4px;
+    scale: 0.9;
+  }
+}
+
+@media (max-width: 600px) {
+
+  /* body {
+    overflow-y: scroll;
+  } */
+
+  .priority-button {
+    width: 82px;
+    height: 48px;
+  }
+
+  
+
+  .add-task-font-styling {
+    font-size: 14px;
+  }
+
+  .nav-list-span {
+    font-size: 11px;
+  }
+
+  /* Login Page */
+  @keyframes identifier {
+    from {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 50vw;
+      height: 70vh;
+    }
+    to {
+      position: absolute;
+      top: 100px;
+      left: 38px;
+      width: 64px;
+      height: 78px;
+      transform: none;
+    }
+  }
+
+  .loginFrame {
+    width: 90%;
+    height: 515px;
+    padding: 0px 32px;
+  }
+
+  .loginForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+  }
+
+  .loginHeadline p {
+    height: 73px;
+    font-size: 40px;
+  }
+
+  .loginHeadline::after {
+    content: "";
+    width: 25%;
+    border: 2px solid #29abe2;
+    background: #29abe2;
+    position: absolute;
+    bottom: 10px;
+  }
+
+  .loginInputs {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 196px;
+    gap: 0px;
+  }
+
+  .remeberMeSection {
+    left: 8px;
+  }
+
+  .inputField {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 152px;
+    gap: 32px;
+  }
+
+  .loginButtons {
+    display: flex;
+    flex-direction: column;
+    gap: 21px;
+    width: 180px;
+    height: 123px;
+  }
+
+  .loginButton,
+  .guestLoginButton {
+    font-size: 16px;
+    line-height: 19, 2px;
+    height: 51px;
+  }
+
+  .signUpFromLoginPage {
+    width: 292px;
+    height: 49px;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    margin-inline: auto;
+    bottom: 15px;
+  }
+
+  .signUpFromLoginPage p {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+  }
+
+  .privacyPolicyContainer {
+    height: 35px;
+    bottom: -55px;
+    gap: 8px;
+  }
+
+  /* Sign Up Page */
+
+  .logoSignUpImage {
+    position: absolute;
+    top: 22px;
+    left: 38px;
+    width: 64px;
+    height: 78px;
+  }
+
+  .backToLoginPageContainer {
+    left: 15px;
+    top: 15px;
+  }
+
+  .signUpFrame {
+    width: 90%;
+    height: 595px;
+    padding: 0px 16px;
+    display: flex;
+    justify-content: start;
+  }
+
+  .signUpInputs {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 16px;
+    align-items: center;
+    height: fit-content;
+    margin-top: 48px;
+  }
+
+  .signUpHeadline {
+    height: 72px;
+    width: 173px;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+
+  .signUpHeadline::after {
+    border: 2px solid #29abe2;
+  }
+
+  .signUpinputField {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    height: fit-content;
+    gap: 24px;
+  }
+
+  .signUpHeadline p {
+    height: 56px;
+    font-size: 47px;
+    font-weight: 700;
+    line-height: 56px;
+  }
+
+  .signUpinputField {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 152px;
+    gap: 24px;
+  }
+
+  .acceptPrivacyPolicyContainer {
+    position: absolute;
+    bottom: 110px;
+  }
+
+  .signUpButtonContainer {
+    bottom: 32px;
+    position: absolute;
+  }
+
+  /* Summary */
+
+  #content-summary {
+    padding: 32px 16px 16px 16px !important;
+    overflow: hidden;
+  }
+
+  aside {
+    padding: 4px !important;
+  }
+
+  nav ul li {
+    width: 100%;
+  }
+
+  #right-lower-main span{
+    text-align: center;
+  }
+
+  nav ul li a {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  #head-summary {
+    position: relative !important;
+    flex-direction: column;
+    align-items: start !important;
+    justify-content: start !important;
+    gap: 0px !important;
+    padding-bottom: 12px;
+  }
+
+  #vertical-blue-line {
+    height: 4px !important;
+    width: 120px !important;
+    position: absolute;
+    bottom: 0px;
+  }
+
+  #left-lower-main,
+  #left-second-line,
+  #left-third-line {
+    width: 100%;
+  }
+
+  #left-first-line,
+  #first-line-left-div,
+  #first-line-right-div,
+  #left-second-line,
+  #left-third-line div {
+    height: 120px;
+  }
+
+  #left-first-line {
+    justify-content: space-evenly;
+  }
+
+  #first-line-left-div,
+  #first-line-right-div {
+    width: 100%;
+    padding: 16px 8px;
+  }
+
+  #first-line-left-div img,
+  #first-line-right-div img,
+  #second-line-left-div img {
+    width: 50px;
+    height: 50px;
+  }
+
+  #second-line-left-div {
+    gap: unset;
+  }
+
+  #left-third-line div {
+    width: 100px;
+    height: 116px;
+  }
+
+  /* Add Task */
+
+  main h1 {
+    font-size: 47px;
+  }
+
+  #upper-form {
+    display: flex;
+    flex-direction: column !important;
+  }
+
+  #upper-form-left {
+    border: none;
+    width: 100%;
+  }
+
+  #upper-form-left div {
+    padding: 0 !important;
+  }
+
+  #upper-form-right {
+    width: 100%;
+    padding: 16px 0px 0px 0px !important;
+  }
+
+  #lower-form {
+    padding-bottom: 25px !important;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 0px;
+  }
+
+  #lower-form-left,
+  #lower-form-right {
+    height: fit-content;
+  }
+
+  #clear-button {
+    display: none;
+  }
+
+  /* Board */
+
+  #h1-board {
+    font-size: 48px;
+  }
+
+  #upper-bord-first-line {
+    padding: 0px 32px;
+  }
+
+  #tasks-div {
+    padding: 0px 16px;
+  }
+
+  .newTodo,
+  .newInProgress,
+  .newAwaitFeedback,
+  .newDone {
+    min-height: 300px;
+  }
+
+  /* Legal Notice, Privacy, Help  */
+
+  .headline {
+    height: 90px;
+  }
+
+  .headlinetext {
+    font-size: 38px;
+  }
+
+  .taskdetail-title-span {
+    font-size: 40px;
+  }
+}
+
+@media (max-width: 325px) {
+  body {
+    overflow-x: hidden;
+  }
+}
+
+@media (max-width: 400px) {
+  .currentContactMobile {
+    width: unset !important;
+  }
+
+  .taskdetail-title-span {
+    font-size: 28px;
+  }
+}
+
+@media (max-height: 750px) {
+  #content-summary {
+    overflow-y: scroll;
+  }
+
+  
+
+  #add-task-section {
+    margin-bottom: 116px !important;
+    margin-top: unset !important;
+    position: fixed;
+    bottom: 0;
+    top: 100px;
+  }
+
+  .mobileContactList {
+    height: calc(83vh - 100px) !important;
+  }
+}
+
+@media (max-height: 900px) {
+  #legal-section {
+    padding: unset;
+  }
+  aside {
+    padding-bottom: 16px;
+  }
+}
+
+@media (max-height: 880px) and (min-width: 1200px) {
+   .addTaskDiv {
+    overflow-y: scroll;
+  }
+}
+
+@media (max-height: 880px) and (min-width: 1024px) {
+
+  #content-summary {
+    top: 150px;
+  }
+
+  #lower-main-summery {
+    overflow-y: scroll;
+  }
+
+  #add-task-section {
+    margin-bottom: 24px !important;
+  }
+
+  #lower-form {
+    margin-bottom: 24px;
+  }
+
+  .contact-header {
+    margin-top: 170px !important;
+  }
+
+  .taskdetail-container {
+    border: 1px solid black;
+    max-height: 600px !important;
+    overflow-y: scroll;
+    padding: 16px;
+    }
+
+  .taskdetail-title-span {
+    font-size: 25px;
+    padding-bottom: 0px;
+  }
+
+  .taskdetail-middle-div {
+    gap: 8px;
+  }
+
+  .subtaskinput-edit {
+    width: 85%;
+  }
+}
+
+@media (max-height: 400px) {
+  .mobileContactList {
+    height: calc(72vh - 100px) !important;
+  }
+}

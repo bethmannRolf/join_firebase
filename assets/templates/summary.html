@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Summary</title>
+    <link rel="shortcut icon" href="../img/favicon.svg" type="image/x-icon">
+
+    <script src="../JavaScript/signUp.js" defer></script>
+    <script src="../JavaScript/data.js" defer></script>
+    <script src="../JavaScript/script.js" defer></script>
+    <script src="../JavaScript/include.js" defer></script>
+    <script src="../JavaScript/summaryTemplateHTML.js" defer></script>
+    <script src="../JavaScript/summary.js" defer></script>
+    
+    <link rel="stylesheet" href="../css/board.css">
+    <link rel="stylesheet" href="../css/aside_and_head_style.css">
+    <link rel="stylesheet" href="../css/summary.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/mediaQuerry.css">
+</head>
+
+<body onload="initUser()">
+    <header w3-include-html="../templates/header.html">
+    </header>
+    <div class="submenuContainer d-none" id="submenuContainer" onclick="closeDropdownMenu()">
+        <div class="submenu" onclick="stopPropagation(event)">
+            <ul>
+                <a href="legalNotice.html">Legal Notice</a>
+                <a href="privacyPolicy.html">Privacy Policy</a>
+                <a onclick="clearUser()">Log Out</a>
+            </ul>
+        </div>
+    </div>
+    <aside w3-include-html="../templates/aside.html">
+    </aside>
+    <main id="content-summary">
+        <div id="head-summary">
+            <h1 id="summary-heading">Join 360</h1>
+            <div id="vertical-blue-line"></div>
+            <span id="keymetrics-subheading">Key metrics at a Glance</span>
+        </div>
+        <div id="lower-main-summery">
+            <div id="left-lower-main">
+                <div id="left-first-line">
+                    <div onclick="redirectToBoard()" onmouseleave="delightFirstDiv()" onmouseover="highlightFirstDiv()"
+                        id="first-line-left-div">
+                        <img class="summary-firstline-imagesize on-hover-pencil" id="summary-pencil-image"
+                            src="../img/summary/summary_pencil_image.png">
+                        <div id="summary-to-do-div">
+                        </div>
+                    </div>
+                    <div onclick="redirectToBoard()" onmouseover="highlightSecondDiv()"
+                        onmouseleave="delightSecondDiv()" id="first-line-right-div">
+                        <img class="summary-firstline-imagesize" id="summary-check-image"
+                            src="../img/summary/summary_check.svg">
+                        <div id="summary-done-div">
+                        </div>
+                    </div>
+                </div>
+                <div onclick="redirectToBoard()" onmouseover="highlightSecondLine()" onmouseleave="delightSecondLine()"
+                    id="left-second-line">
+                    <div id="second-line-left-div">
+                        <img class="urgent-task-image" id="image-task"
+                            src="../img/summary/summary_urgent_circle.svg">
+                        <div id="summary-urgent-right">
+                        </div>
+                    </div>
+                    <div id="second-line-seperateline-div">
+                    </div>
+                    <div id="second-line-right-div">
+                    </div>
+                </div>
+                <div id="left-third-line">
+                    <div onclick="redirectToBoard()" id="third-line-left-div">
+                    </div>
+                    <div onclick="redirectToBoard()" id="third-line-middle-div">
+                    </div>
+                    <div onclick="redirectToBoard()" id="third-line-right-div">
+                    </div>
+                </div>
+            </div>
+            <div id="right-lower-main">
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

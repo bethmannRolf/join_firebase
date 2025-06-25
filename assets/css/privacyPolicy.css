@@ -1,0 +1,68 @@
+*{
+    margin:  0;
+}
+
+body {
+font-family: 'Inter', sans-serif;
+font-family: 'Open Sans', sans-serif;
+overflow: hidden;
+}
+
+h1 {
+    /* position: absolute;
+    top: 206px;
+    left: 328px; */
+    gap: 30px;
+    font-weight: 700;
+    font-size: 61px;
+    margin-bottom: 16px;
+}
+
+h2 {
+    margin-bottom: 12px;
+}
+
+.arrow {
+    padding: 8px;
+}
+
+.arrow:hover {
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 100%;
+    background-size: 110%;
+} 
+
+.subtitle {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.privacyPolicy {
+    position: relative;
+    /* bottom: 100px; */
+}
+
+.privacyBox, .legalNoticeContainer {
+    position: relative;
+    top: 0px;
+    height: calc(100vh - 120px);
+    padding: 32px 24px 180px 250px;
+    margin-top: 100px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+#arrowLeft {
+    position: absolute;
+    top: 35px;
+    right: 16px;
+}
+
+.imprint {
+    list-style: disc;
+    margin-left: 24px;
+}
