@@ -419,10 +419,11 @@ function updateSecondLineRightDiv(closestDueDate) {
  * @returns {void}
  */
 async function initUser() {
+  console.log('innerhalb von init user')
   await includeHTML();
   await saveUserTasksToServer();
   await getGlobalUserData();
-  await getUser();
+ getUser();
   initNavbarHighlight();
   getUserLogo();
   if (document.getElementById("right-lower-main") !== null) {
@@ -441,7 +442,11 @@ async function initUser() {
 async function getUser() { 
   try {
     let currentUserData = contactData[0];
-    currentUser.push(currentUserData.userName);
+    console.log('Get user contact data', contactData[0])
+    console.log('Current User', currentUserData.userName)
+console.log('currentUser before push:', currentUserData.userNamer);
+
+    currentUser = (currentUserData.userName);
   } catch (e) {
     console.error('Loading error:', e);
   }

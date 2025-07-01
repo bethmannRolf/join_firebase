@@ -2,150 +2,157 @@ let checkbox = false;
 let globalUserData = [];
 
 /**
- * This function changes the checkbox of the login page.
- * 
+ * Toggles the checkbox state and updates its image.
  */
 function changeCheckbox() {
-  if (!checkbox == true) {
-    checkbox = true;
-  } else {
-    checkbox = false;
-  }
+  checkbox = !checkbox;
   switchCheckboxImage();
 }
 
 /**
- * 
- * @event stopPropagation
- * @param {*} event 
+ * Stops event propagation.
+ * @param {Event} event - The triggered event.
  */
-function stopPropagation(event) { 
+function stopPropagation(event) {
   event.stopPropagation();
 }
 
 /**
- * Überprüft, ob das Datum im Eingabefeld gültig ist und es ggf. korrigiert.
- * @param {HTMLInputElement} input - Das Eingabefeld, das das Datum enthält.
+ * Validates the date input to ensure it doesn't exceed the max date.
+ * @param {HTMLInputElement} input - The date input element.
  */
 function validateDate(input) {
-  let maxDate = new Date(input.getAttribute('max'));
-  let inputDate = new Date(input.value);
+  const maxDate = new Date(input.getAttribute('max'));
+  const inputDate = new Date(input.value);
   if (inputDate > maxDate) {
     input.value = input.getAttribute('max');
   }
 }
 
+/**
+ * Initializes the page if it's loaded externally.
+ */
 async function initForExtern() {
   await includeHTML();
-  checkForExternPage(); 
-
+  checkForExternPage();
 }
 
+/**
+ * Adjusts the layout if the page is an external legal/privacy page.
+ */
 function checkForExternPage() {
-  let path = window.location.pathname
-    removeSidebar();
-    removerUserLogo();
-    removeHref(); 
-    highlightPrivacyPolicy(path);
+  const path = window.location.pathname;
+  removeSidebar();
+  removeUserLogo();
+  removeHref();
+  highlightPrivacyPolicy(path);
 }
 
+/**
+ * Clears the sidebar content and reduces its width.
+ */
 function removeSidebar() {
   document.getElementById('flex-list-container').innerHTML = '';
-  let aside = document.querySelector('aside');
+  const aside = document.querySelector('aside');
   aside.style.width = '200px';
-  
-  
 }
 
-function removerUserLogo() {
-    document.getElementById('header-right-side').innerHTML = '';
-  
+/**
+ * Removes the user logo from the header.
+ */
+function removeUserLogo() {
+  document.getElementById('header-right-side').innerHTML = '';
 }
 
+/**
+ * Removes href from specific links to prevent navigation.
+ */
 function removeHref() {
-  let linksToRemove = document.querySelectorAll('a[href="privacyPolicy.html"], a[href="legalNotice.html"]');
-  linksToRemove.forEach(function(link) {
-  link.removeAttribute('href');
-  });
+  const linksToRemove = document.querySelectorAll(
+    'a[href="privacyPolicy.html"], a[href="legalNotice.html"]'
+  );
+  linksToRemove.forEach(link => link.removeAttribute('href'));
 }
 
+/**
+ * Highlights the appropriate sidebar element depending on the current path.
+ * @param {string} path - Current page path.
+ */
 function highlightPrivacyPolicy(path) {
-  if (path == '/assets/templates/privacyPolicyExtern.html') {
-    let element = document.getElementById('privacy-list-element');
-    element.style.backgroundColor = '#091931';
-  }else {
-    let element = document.getElementById('legalNotice-list-element');
-    element.style.backgroundColor = '#091931';
+  const privacyElement = document.getElementById('privacy-list-element');
+  const legalElement = document.getElementById('legalNotice-list-element');
+  const highlightColor = '#091931';
 
-  }
-  
-}
-
-/**
- * This function changes the image of the checkbox in dependence of the checkbox.
- * 
- */
-function switchCheckboxImage() { 
-  if (!checkbox == false) {
-    document.getElementById("notChecked").classList.add("d-none");
-    document.getElementById("notChecked").classList.remove("d-block");
-    document.getElementById("checked").classList.add("d-block");
-    document.getElementById("checked").classList.remove("d-none");
+  if (path.includes('privacyPolicyExtern.html')) {
+    privacyElement.style.backgroundColor = highlightColor;
   } else {
-    document.getElementById("notChecked").classList.add("d-block");
-    document.getElementById("notChecked").classList.remove("d-none");
-    document.getElementById("checked").classList.add("d-none");
-    document.getElementById("checked").classList.remove("d-block");
+    legalElement.style.backgroundColor = highlightColor;
   }
 }
- 
+
 /**
- * This function fills the input fields of the login form.
- * 
- * @param {*} event 
+ * Updates checkbox visuals based on its state.
  */
-async function guestLogin(event) { 
+function switchCheckboxImage() {
+  const notChecked = document.getElementById('notChecked');
+  const checked = document.getElementById('checked');
+
+  if (checkbox) {
+    notChecked.classList.add('d-none');
+    notChecked.classList.remove('d-block');
+    checked.classList.add('d-block');
+    checked.classList.remove('d-none');
+  } else {
+    notChecked.classList.add('d-block');
+    notChecked.classList.remove('d-none');
+    checked.classList.add('d-none');
+    checked.classList.remove('d-block');
+  }
+}
+
+/**
+ * Fills the login form with guest credentials and logs in.
+ * @param {Event} event - Click event from guest login button.
+ */
+async function guestLogin(event) {
   event.preventDefault();
-  document.getElementById('loginEmail').value = "guest@test.de";
-  document.getElementById('loginPassword').value = "1234";
+  document.getElementById('loginEmail').value = 'guest@test.de';
+  document.getElementById('loginPassword').value = '1234';
   loginUser();
 }
 
 /**
- * This function catches the value of the input fielder to find a user.
- * If the user is found, the user data is set as "currentUser" to the backend and the user is redirected to the summary.html.
+ * Attempts to log the user in with the provided credentials.
  */
-async function loginUser() { 
-  let email = document.getElementById("loginEmail").value;
-  let password = document.getElementById("loginPassword").value;
-  let user = users.find(
-    (users) => users.email == email && users.password == password
-  );
+async function loginUser() {
+  const email = document.getElementById('loginEmail').value;
+  const password = document.getElementById('loginPassword').value;
+
+  const user = users.find(u => u.email === email && u.password === password);
+  console.log('user found')
   if (!user) {
     getErrorMessage();
   } else {
-    await setItem("currentUser", JSON.stringify(user));
+    localStorage.setItem('currentUser', JSON.stringify(user));
+
     await getGlobalUserData();
-    window.open("summary.html", "_self");
+    window.open('summary.html', '_self');
   }
 }
 
 /**
- * Retrieves global user data asynchronously from storage.
- * 
- * @async
- * @function getGlobalUserData
- * @returns {Object | null} The global user data retrieved from storage, or null if an error occurs.
+ * Loads global user data into memory.
+ * @returns {Promise<Object|null>} The user data or null if an error occurred.
  */
 async function getGlobalUserData() {
   try {
-    globalUserData = JSON.parse(await getItem("currentUser"));
+    globalUserData = JSON.parse(await getItem('currentUser'));
+
     if (Array.isArray(contactData) && contactData.length === 0) {
-      // console.log("In Global User data");
       contactData.push(globalUserData);
-      // console.log("Kontaktdaten in summary", contactData);
+      console.log('Contact Data von globaluserdata', contactData)
+      console.log('getGlobalUserData Success')
       return globalUserData;
-    } else {
     }
   } catch (error) {
     return null;
@@ -153,34 +160,27 @@ async function getGlobalUserData() {
 }
 
 /**
- * This function is called when the user has typed in the wrong password or email.
- * The border of the input fields become red.
- * 
+ * Displays an error when login credentials are incorrect.
  */
-function getErrorMessage() { 
-  loginEmail.style.border = "2px solid red";
-  loginPassword.style.border = "2px solid red";
-  document.getElementById("wrongPassword").classList.remove("d-none");
-  rememberMe.classList.add("remember");
-  document
-    .getElementById("loginForm")
-    .addEventListener("click", function (event) {
-      event.stopPropagation();
-    });
+function getErrorMessage() {
+  document.getElementById('loginEmail').style.border = '2px solid red';
+  document.getElementById('loginPassword').style.border = '2px solid red';
+  document.getElementById('wrongPassword').classList.remove('d-none');
+  document.getElementById('rememberMe')?.classList.add('remember');
+
+  document.getElementById('loginForm')?.addEventListener('click', stopPropagation);
 }
 
 /**
- * This function is used to close the dropdown menu.
- * 
+ * Closes the dropdown menu.
  */
-function closeDropdownMenu() { 
-  document.getElementById("submenuContainer").classList.add("d-none");
+function closeDropdownMenu() {
+  document.getElementById('submenuContainer').classList.add('d-none');
 }
 
 /**
- * This function is used to open the dropdown menu.
- * 
+ * Opens the dropdown menu.
  */
-function openDropdownMenu() { 
-  document.getElementById("submenuContainer").classList.remove("d-none");
+function openDropdownMenu() {
+  document.getElementById('submenuContainer').classList.remove('d-none');
 }
