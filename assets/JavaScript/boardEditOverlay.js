@@ -666,7 +666,6 @@ function editTask(taskID) {
     // updateAssignedContacts(currentAssignedContactsHTML);
     updateSubtaskList(subtasksHTML);
     setTodaysDateForInputField('taskdetail-date-input');
-
 }
 
 /**

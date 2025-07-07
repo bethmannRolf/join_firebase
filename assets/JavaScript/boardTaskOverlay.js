@@ -469,7 +469,6 @@ function openAddTaskForm() {
         addTaskBody.innerHTML = '';
         addTaskBody.innerHTML = boardAddTaskTemplate();
         setTodaysDateForInputField('due-date-board-overlay-input');
-
     }
 }
 
@@ -658,7 +657,6 @@ function openTaskDetail(taskID) {
     document.getElementById('detailview-container').innerHTML = renderOpenTaskDetailTemplate(categoryBackgroundColor, task.category, task.title, task.description, formattedDueDate, priorityInfo.text, priorityInfo.image, taskID);
     document.getElementById('render-assigned-contacts').innerHTML = assignedContactsHTML;
     document.getElementById('render-taskdetails-subtasks').innerHTML = subtasksHTML;
-
 }
 
 /**

@@ -10,26 +10,20 @@
     <link rel="stylesheet" href="../css/mediaQuerry.css">
     <link rel="stylesheet" href="../css/fonts.css">
     <link rel="stylesheet" href="../css/summary.css">
-    <!-- Firebase App (Core) SDK -->
-<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-
-<!-- Oder für Realtime DB statt firestore.js -->
-<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
-<script src="../JavaScript/firebase-config.js" defer></script>
-
-
-
-  <script  src="../JavaScript/signUp.js" defer ></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    <script src="../JavaScript/firebase-config.js" defer></script>
+    <script src="../JavaScript/signUp.js" defer></script>
     <script src="../JavaScript/data.js" defer></script>
     <script src="../JavaScript/script.js" defer></script>
 </head>
 
 <body onload="loadUsers()">
     <img class="logoLoginImage" src="../img/logoLoginPage.svg">
-    
+
     <div class="loginFrame" id="loginFrame">
         <div class="loginHeadline">
-            
+
             <p>Log in</p>
         </div>
         <form onsubmit="loginUser(); return false;" class="loginForm" id="loginForm">
@@ -53,10 +47,10 @@
                 </div>
                 <div class="remeberMeSection" id="rememberMe">
                     <div class="checkboxImage">
-                        <img onclick="changeCheckbox()" id="notChecked" class="checkbox"
-                            src="../img/uncheckedNew.svg" alt="">
-                        <img onclick="changeCheckbox()" id="checked" class="checkbox d-none"
-                            src="../img/checkedNew.svg" alt="">
+                        <img onclick="changeCheckbox()" id="notChecked" class="checkbox" src="../img/uncheckedNew.svg"
+                            alt="">
+                        <img onclick="changeCheckbox()" id="checked" class="checkbox d-none" src="../img/checkedNew.svg"
+                            alt="">
                     </div>
                     <p>Remember me</p>
                 </div>
@@ -80,5 +74,5 @@
     <div class="greet d-none" id="greetUser">
     </div>
 </body>
-  
+
 </html>

@@ -28,7 +28,6 @@ async function loadUsers() {
   }
 }
 
-
 /**
  * Validates password match and checkbox agreement, then registers the user.
  */
@@ -42,7 +41,6 @@ async function registerUser() {
     alert('Please accept the Privacy Policy!');
     return;
   }
-
   await registerSuccessfully();
 }
 

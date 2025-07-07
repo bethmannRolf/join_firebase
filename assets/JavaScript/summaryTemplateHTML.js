@@ -108,6 +108,5 @@ function generateDeadlineHTML(closestDueDate) {
     return `<span id="date-deadline">- - -</span>
       <span id="summary-deadline-span">Upcoming Deadline</span>
       `;
-
   }
 }

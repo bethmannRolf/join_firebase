@@ -459,7 +459,6 @@ function setInputsOnBigEditPopup(contactID) {
         document.getElementById('editContactName').value = contactData[0]['contacts'][i].firstname + " " + contactData[0]['contacts'][i].name;
         document.getElementById('editContactEmail').value = contactData[0]['contacts'][i].email;
         document.getElementById('editContactPhone').value = contactData[0]['contacts'][i].phoneNumber;
-
         const editContactIconDiv = document.getElementById("editContactIconDiv");
         let formatedInitials = contactData[0]['contacts'][i]["firstname"].charAt(0) + contactData[0]['contacts'][i]["name"].charAt(0);
         let formatedColor = contactData[0]['contacts'][i]["avatarColor"];
@@ -648,7 +647,6 @@ function setVariabelsSmallWidth(i, contactID) {
         contactData[0]['contacts'][contactID].phoneNumber = newPhone;
   }
 }
-
 
 /**
  * Saves the contact data when the window width is big.

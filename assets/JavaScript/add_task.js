@@ -378,7 +378,6 @@ function handleFormSubmit(event) {
     }
 }
 
-
 document.addEventListener('DOMContentLoaded', function () {
     let form = document.getElementById('add-task-form');
     form.addEventListener('submit', handleFormSubmit);
@@ -456,7 +455,6 @@ function getSubtasks() {
     return subtasks;
 }
 
-
 /**
  * Retrieves the due date for adding a new task from the input field and validates it against the current date.
  * @function getAddTaskDueDate
@@ -475,7 +473,6 @@ function setTodaysDateForInputField(dateInputID) {
     let today = new Date().toISOString().split('T')[0];
     document.getElementById(dateInputID).setAttribute('min', today);
 }
-
 
 /**
  * Creates a new task using the provided data and saves it to the to-do list.
@@ -511,7 +508,6 @@ function clearFormAndDisableButton() {
     disableCreateTaskButton();
 }
 
-
 /**
  * Retrieves the IDs of selected contacts from the drop-down content.
  * @function getSelectedContactIds
@@ -535,7 +531,6 @@ function deleteLastTask() {
         contactData[0].tasks[0]['toDo'].pop();
     }
 }
-
 
 let originalSubtaskTextMap = {};
 

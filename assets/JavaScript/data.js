@@ -1,5 +1,3 @@
-// data.js - kompatibel mit Firebase v8 SDK
-
 let currentUser = null;
 
 /**
@@ -59,9 +57,7 @@ function clearContact(userId, contactId) {
 }
 
 async function saveUserTasksToServer() {
-  console.log('innerhalb von saveusertasks');
   await loadUsers();
-
   if (Array.isArray(contactData) && contactData.length > 0) {
     if (contactData[0].hasOwnProperty('currentUserId')) {
       const currentUserId = contactData[0].currentUserId;
@@ -72,17 +68,10 @@ async function saveUserTasksToServer() {
         await setItem('users', JSON.stringify(users));
         // await clearItem('currentUser');
         await setItem('currentUser', JSON.stringify(contactData[0]));
-
         try {
-          console.log('Daten, die gespeichert werden sollen:', contactData[0]);
-
-          // Statt Firestore → Realtime Database!
           await firebase.database()
             .ref(`users/${currentUserId}`)
             .set(contactData[0]);
-
-
-          console.log('Tasks erfolgreich in Realtime Database gespeichert');
         } catch (error) {
           console.error('Fehler beim Speichern in Realtime Database:', error);
         }

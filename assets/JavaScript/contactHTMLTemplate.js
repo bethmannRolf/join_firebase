@@ -21,7 +21,6 @@ function showContactInfoTemplate(contact) {
             </text>
           </svg>
           </div>
-
           <div class="userprofil-top-right-side">
             <div class="current-name">${contact["firstname"]} ${contact["name"]}</div>
             <div class="edit-and-delete d-flex">
@@ -30,9 +29,7 @@ function showContactInfoTemplate(contact) {
             </div>
           </div>
         </div>
-
         <div class="contact-info"><span>Contact Information</span></div>
-
         <div class="email-and-phone">
           <span><b>Email</b></span>
           <a class="emailLink" href="#">${contact.email}</a>
@@ -54,7 +51,6 @@ function showContactList(j, initials, i, avatarColor, userProfilInitials, contac
         </text>
       </svg>
     </div>
-  
     <div class="contact">
       ${contactfirstname} ${contactname} <br>
       <a class="emailLink" href="#">${contactemail}</a>
