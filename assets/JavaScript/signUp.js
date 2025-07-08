@@ -14,19 +14,89 @@ function getItem(key) {
   });
 }
 
-/**
- * Loads existing users from the backend and stores them in the global users array.
- */
-async function loadUsers() {
+// async function loadUsersFromFirebase() {
+//   try {
+//     const snapshot = await firebase.database().ref('users').once('value');
+//     const data = snapshot.val();
+//     users = data ? Object.values(data) : [];
+//     console.log('Loaded users from Firebase:', users);
+//   } catch (error) {
+//     console.error('Error loading users from Firebase:', error);
+//     users = [];
+//   }
+// }
+
+async function loadUsersFromFirebase() {
   try {
-    const usersStr = await getItem('users');
-    users = usersStr ? JSON.parse(usersStr) : [];
-    console.log('users')
-  } catch (e) {
-    console.error('Loading error:', e);
+    const snapshot = await firebase.database().ref('users').once('value');
+    const data = snapshot.val();
+    users = data
+      ? Object.values(data).map(cleanUserAfterFirebaseLoad)
+      : [];
+    console.log('Loaded users from Firebase:', users);
+  } catch (error) {
+    console.error('Error loading users from Firebase:', error);
     users = [];
   }
 }
+
+
+
+
+
+
+
+
+// function saveUsersToFirebase() {
+//   firebase.database().ref('users').set(users);
+// }
+
+// async function saveUsersToFirebase() {
+//   try {
+//     debugger;
+//     console.log('users', users)
+//     await firebase.database().ref('users').set(users);
+//     console.log('Saved to Firebase successfully');
+//   } catch (e) {
+//     console.error('Saving to Firebase failed:', e);
+//   }
+// }
+
+async function saveUsersToFirebase() {
+  try {
+    const usersAsObject = {};
+    users.forEach((user, index) => {
+      const uid = user.userName || `user_${index}`;
+      usersAsObject[uid] = prepareUserForFirebase(user);
+    });
+    await firebase.database().ref('users').set(usersAsObject);
+    console.log('Saved to Firebase successfully');
+  } catch (e) {
+    console.error('Saving to Firebase failed:', e);
+  }
+}
+
+
+
+
+
+
+
+
+/**
+ * Loads existing users from the backend and stores them in the global users array.
+ */
+// async function loadUsers() {
+//   try {
+//     const usersStr = await getItem('users');
+//     users = usersStr ? JSON.parse(usersStr) : [];
+//     console.log('Loaded users:', users); // <- Hilfreich!
+//   } catch (e) {
+//     console.error('Loading error:', e);
+//     users = [];
+//   }
+// }
+
 
 /**
  * Validates password match and checkbox agreement, then registers the user.
@@ -41,8 +111,11 @@ async function registerUser() {
     alert('Please accept the Privacy Policy!');
     return;
   }
+
+  // await loadUsersFromFirebase(); 
   await registerSuccessfully();
 }
+
 
 /**
  * Highlights mismatched password fields and shows error message.
@@ -58,15 +131,19 @@ function showPasswordMismatch() {
  * Adds new user to array and backend, shows success popup and redirects to login.
  */
 async function registerSuccessfully() {
-  addUserToArray();
-  await setItem('users', JSON.stringify(users));
-  showSuccessPopup();
+  addUserToArray();                   // Benutzer in Array einfügen
+  await setItem('users', JSON.stringify(users)); 
+  
+  await saveUsersToFirebase();       // Firebase speichern, mit await!
+  showSuccessPopup();                // erst dann Feedback zeigen
 
   setTimeout(() => {
     resetForm();
-    window.open('index.html', '_self');
+    window.open('index.html', '_self');  // und dann Weiterleitung
   }, 1000);
 }
+
+
 
 /**
  * Pushes the new user object to the users array.
@@ -86,9 +163,11 @@ function addUserToArray() {
     password: password.value,
     confirmPassword: confirmPassword.value
   });
-      console.log('added user success')
-      console.log('Contact Data',contactData)
+
+  console.log('added user success');
+  console.log('Contact Data', contactData);
 }
+
 
 /**
  * Displays registration success popup for a short time.
@@ -111,3 +190,63 @@ function resetForm() {
   confirmPassword.style.border = '';
   changeCheckbox();
 }
+
+
+
+
+function cleanUserAfterFirebaseLoad(user) {
+  const userCopy = structuredClone(user);
+
+  if (
+    Array.isArray(userCopy.tasks) &&
+    userCopy.tasks.length > 0 &&
+    typeof userCopy.tasks[0] === 'object'
+  ) {
+    for (const key in userCopy.tasks[0]) {
+      if (
+        Array.isArray(userCopy.tasks[0][key]) &&
+        userCopy.tasks[0][key].length === 1 &&
+        userCopy.tasks[0][key][0] === '__placeholder__'
+      ) {
+        userCopy.tasks[0][key] = [];
+      }
+    }
+  }
+
+  if (
+    Array.isArray(userCopy.contacts) &&
+    userCopy.contacts.length === 1 &&
+    userCopy.contacts[0] === '__placeholder__'
+  ) {
+    userCopy.contacts = [];
+  }
+
+  return userCopy;
+}
+
+
+function prepareUserForFirebase(user) {
+  const userCopy = structuredClone(user);
+
+  if (
+    Array.isArray(userCopy.tasks) &&
+    userCopy.tasks.length > 0 &&
+    typeof userCopy.tasks[0] === 'object'
+  ) {
+    for (const key in userCopy.tasks[0]) {
+      if (
+        Array.isArray(userCopy.tasks[0][key]) &&
+        userCopy.tasks[0][key].length === 0
+      ) {
+        userCopy.tasks[0][key].push('__placeholder__');
+      }
+    }
+  }
+
+  if (Array.isArray(userCopy.contacts) && userCopy.contacts.length === 0) {
+    userCopy.contacts.push('__placeholder__');
+  }
+
+  return userCopy;
+}
+

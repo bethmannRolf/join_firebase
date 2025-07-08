@@ -118,12 +118,18 @@ async function guestLogin(event) {
   event.preventDefault();
   document.getElementById('loginEmail').value = 'guest@test.de';
   document.getElementById('loginPassword').value = '1234';
-  loginUser();
+  await loginUser();
 }
+
+
+
+
 
 /**
  * Attempts to log the user in with the provided credentials.
  */
+
+
 async function loginUser() {
   const email = document.getElementById('loginEmail').value;
   const password = document.getElementById('loginPassword').value;
@@ -134,7 +140,7 @@ async function loginUser() {
     getErrorMessage();
   } else {
     localStorage.setItem('currentUser', JSON.stringify(user));
-
+    
     await getGlobalUserData();
     window.open('summary.html', '_self');
   }

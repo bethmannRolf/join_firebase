@@ -57,7 +57,7 @@ function clearContact(userId, contactId) {
 }
 
 async function saveUserTasksToServer() {
-  await loadUsers();
+  // await loadUsersFromFirebase();
   if (Array.isArray(contactData) && contactData.length > 0) {
     if (contactData[0].hasOwnProperty('currentUserId')) {
       const currentUserId = contactData[0].currentUserId;
