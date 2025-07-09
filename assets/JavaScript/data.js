@@ -56,55 +56,31 @@ function clearContact(userId, contactId) {
   return firebase.firestore().collection('users').doc(userId).collection('contacts').doc(contactId).delete();
 }
 
-// async function saveUserTasksToServer() {
-//   await loadUsersFromFirebase();
-//   if (Array.isArray(contactData) && contactData.length > 0) {
-//     if (contactData[0].hasOwnProperty('currentUserId')) {
-//       const currentUserId = contactData[0].currentUserId;
-//       const userIndex = users.findIndex(user => user.currentUserId === currentUserId);
-
-//       if (userIndex !== -1) {
-//         users[userIndex] = contactData[0];
-//         await setItem('users', JSON.stringify(users));
-//         // await clearItem('currentUser');
-//         await setItem('currentUser', JSON.stringify(contactData[0]));
-//         try {
-//           await firebase.database()
-//             .ref(`users/${currentUserId}`)
-//             .set(contactData[0]);
-//         } catch (error) {
-//           console.error('Fehler beim Speichern in Realtime Database:', error);
-//         }
-//       } else {
-//         console.warn('Benutzer nicht in users Array gefunden');
-//       }
-//     } else {
-//       console.warn('contactData[0] hat keine currentUserId');
-//     }
-//   } else {
-//     console.warn('contactData ist leer oder ungültig');
-//   }
-//   console.log('Tasks werden gespeichert:', contactData[0].tasks);
-
-// }
-
+/**
+ * Loads users from Firebase, updates the current user's tasks based on `contactData`,
+ * and then saves the updated users array to both localStorage and Firebase.
+ * 
+ * - Loads all users from Firebase first.
+ * - Checks if `contactData` is a valid array with at least one element.
+ * - Finds the current user in the `users` array by `currentUserId`.
+ * - Updates the user data in the array and saves it locally and to Firebase.
+ * - Logs warnings if the user is not found or `contactData` is invalid.
+ *
+ * @async
+ * @function
+ * @returns {Promise<void>} A promise that resolves when the save operation is complete.
+ */
 async function saveUserTasksToServer() {
-  await loadUsersFromFirebase(); // lädt users-Array aus 'data'
-
+  await loadUsersFromFirebase();
   if (Array.isArray(contactData) && contactData.length > 0) {
     const currentUserId = contactData[0].currentUserId;
     const userIndex = users.findIndex(user => user.currentUserId === currentUserId);
-
     if (userIndex !== -1) {
       users[userIndex] = contactData[0];
-
-      // lokale Speicherung
       await setItem('users', JSON.stringify(users));
       await setItem('currentUser', JSON.stringify(contactData[0]));
-
       try {
-        await firebase.database().ref('data').set(JSON.stringify(users)); // Zentrale Speicherung
-        console.log('Tasks gespeichert (neues Format)', contactData[0].tasks);
+        await firebase.database().ref('data').set(JSON.stringify(users));
       } catch (error) {
         console.error('Fehler beim Speichern in Firebase:', error);
       }
@@ -115,55 +91,3 @@ async function saveUserTasksToServer() {
     console.warn('contactData leer oder ungültig');
   }
 }
-
-
-
-
-
-
-// async function saveUserTasksToServer() {
-//   // 1. Stelle sicher, dass die users geladen sind
-//   if (!users || users.length === 0) {
-//     await loadUsersFromFirebase();
-//   }
-
-//   // 2. Validierung
-//   if (!Array.isArray(contactData) || contactData.length === 0) {
-//     console.warn('contactData ist leer oder ungültig');
-//     return;
-//   }
-
-//   const currentUser = contactData[0];
-
-//   if (!currentUser.hasOwnProperty('currentUserId')) {
-//     console.warn('contactData[0] hat keine currentUserId');
-//     return;
-//   }
-
-//   const userIndex = users.findIndex(user => user.currentUserId === currentUser.currentUserId);
-
-//   if (userIndex === -1) {
-//     console.warn('Benutzer nicht im users-Array gefunden');
-//     return;
-//   }
-
-//   // 3. Platzhalter setzen (damit leere Arrays gespeichert werden können)
-//   const preparedUser = prepareUserForFirebase(currentUser);
-
-//   // 4. User im Array ersetzen & speichern
-//   users[userIndex] = preparedUser;
-//   await setItem('users', JSON.stringify(users));
-//   await setItem('currentUser', JSON.stringify(preparedUser));
-
-//   // 5. In Firebase schreiben
-//   try {
-//     await firebase.database()
-//       .ref(`users/${currentUser.userName}`) // ggf. userName statt currentUserId
-//       .set(preparedUser);
-//     console.log('User-Daten erfolgreich gespeichert.');
-//   } catch (error) {
-//     console.error('Fehler beim Speichern in Firebase:', error);
-//   }
-// }
-
-

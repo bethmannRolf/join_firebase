@@ -31,7 +31,7 @@ function redirectToBoard() {
  * @function highlightFirstDiv
  *  @returns {void}
  */
-function highlightFirstDiv() { 
+function highlightFirstDiv() {
   document.getElementById("first-line-left-div").classList.add("darken-div");
   changePencilHhover();
   document.getElementById("summary-pencil-image").classList.add("on-hover-pencil");
@@ -45,7 +45,7 @@ function highlightFirstDiv() {
  * @function delightFirstDiv
  * @returns {void}
  */
-function delightFirstDiv() { 
+function delightFirstDiv() {
   document.getElementById("first-line-left-div").classList.toggle("darken-div");
   changePencilDishover();
   document.getElementById("amount-of-to-do").classList.remove("color-white");
@@ -58,7 +58,7 @@ function delightFirstDiv() {
  * @function changePencilHhover
  * @returns {void}
  */
-function changePencilHhover() { 
+function changePencilHhover() {
   let pencilOnHover = document.getElementById("summary-pencil-image");
   pencilOnHover.src = "../img/summary/summary_pencil_image_white.svg";
 }
@@ -69,7 +69,7 @@ function changePencilHhover() {
  * @function changePencilDishover
  * @returns {void}
  */
-function changePencilDishover() { 
+function changePencilDishover() {
   let pencilOnDishover = document.getElementById("summary-pencil-image");
   pencilOnDishover.src = "../img/summary/summary_pencil_image.png";
 }
@@ -80,7 +80,7 @@ function changePencilDishover() {
  * @function highlightSecondDiv
  * @returns {void}
  */
-function highlightSecondDiv() { 
+function highlightSecondDiv() {
   document.getElementById("first-line-right-div").classList.add("darken-div");
   document.getElementById("summary-amount-done").classList.add("color-white");
   document.getElementById("summary-done-span").classList.add("color-white");
@@ -93,8 +93,8 @@ function highlightSecondDiv() {
  * @function delightSecondDiv
  * @returns {void}
  */
-function delightSecondDiv() { 
-  changeCheckDishover(); 
+function delightSecondDiv() {
+  changeCheckDishover();
   document.getElementById("first-line-right-div").classList.remove("darken-div");
   document.getElementById("summary-amount-done").classList.remove("color-white");
   document.getElementById("summary-done-span").classList.remove("color-white");
@@ -106,7 +106,7 @@ function delightSecondDiv() {
  * @function changeCheckHover
  * @returns {void}
  */
-function changeCheckHover() { 
+function changeCheckHover() {
   let checkOnHover = document.getElementById("summary-check-image");
   checkOnHover.src = "../img/summary/summary_check_white.svg";
 }
@@ -117,7 +117,7 @@ function changeCheckHover() {
  * @function changeCheckDishover
  * @returns {void}
  */
-function changeCheckDishover() { 
+function changeCheckDishover() {
   let checkOnDishover = document.getElementById("summary-check-image");
   checkOnDishover.src = "../img/summary/summary_check.svg";
 }
@@ -128,7 +128,7 @@ function changeCheckDishover() {
  * @function highlightSecondLine
  * @returns {void}
  */
-function highlightSecondLine() { 
+function highlightSecondLine() {
   document.getElementById("left-second-line").classList.add("darken-div");
   document.getElementById("summary-amount-urgent").classList.add("color-white");
   document.getElementById("summary-urgent-span").classList.add("color-white");
@@ -143,7 +143,7 @@ function highlightSecondLine() {
  * @function delightSecondLine
  * @returns {void}
  */
-function delightSecondLine() { 
+function delightSecondLine() {
   document.getElementById("left-second-line").classList.remove("darken-div");
   document.getElementById("summary-amount-urgent").classList.remove("color-white");
   document.getElementById("summary-urgent-span").classList.remove("color-white");
@@ -159,7 +159,7 @@ function delightSecondLine() {
  * @function greetUser
  * @returns {void}
  */
-function greetUser() { 
+function greetUser() {
   let currentDate = new Date();
   let currentHour = currentDate.getHours();
   let greeting;
@@ -181,7 +181,7 @@ function greetUser() {
  * @function countToDos
  * @returns {void}
  */
-function countToDos() { 
+function countToDos() {
   let toDoTasks = contactData[0].tasks[0].toDo;
   let numberOfToDos = toDoTasks.length;
   document.getElementById("summary-to-do-div").innerHTML = "";
@@ -195,7 +195,7 @@ function countToDos() {
  * @function countDoneTasks
  * @returns {void}
  */
-function countDoneTasks() { 
+function countDoneTasks() {
   let doneTasks = contactData[0].tasks[0].done;
   let numberOfDoneTasks = doneTasks.length;
   document.getElementById("summary-done-div").innerHTML = "";
@@ -209,7 +209,7 @@ function countDoneTasks() {
  * @function countInProgressTasks
  * @returns {void}
  */
-function countInProgressTasks() { 
+function countInProgressTasks() {
   let inProgressTasks = contactData[0].tasks[0].inProgress;
   let numberOfInProgressTasks = inProgressTasks.length;
   document.getElementById("third-line-middle-div").innerHTML = "";
@@ -223,7 +223,7 @@ function countInProgressTasks() {
  * @function countAwaitingFeedbackTasks
  * @returns {void}
  */
-function countAwaitingFeedbackTasks() { 
+function countAwaitingFeedbackTasks() {
   let awaitFeedbackTasks = contactData[0].tasks[0].awaitFeedback;
   let numberOfAwaitingFeedbackTasks = awaitFeedbackTasks.length;
   document.getElementById("third-line-right-div").innerHTML = "";
@@ -237,7 +237,7 @@ function countAwaitingFeedbackTasks() {
  * @function countAllTasks
  * @returns {void}
  */
-function countAllTasks() { 
+function countAllTasks() {
   let toDoTasks = contactData[0].tasks[0].toDo;
   let inProgressTasks = contactData[0].tasks[0].inProgress;
   let awaitFeedbackTasks = contactData[0].tasks[0].awaitFeedback;
@@ -289,7 +289,7 @@ function filterTasksByPriority(tasks, priority) {
  * @param {Array} doneTasks - An array of completed tasks.
  * @returns {number} - The total count of tasks with priority zero across all categories.
  */
-function calculateTotalPriorityZeroTasks(toDoTasks, inProgressTasks, awaitFeedbackTasks, doneTasks) { 
+function calculateTotalPriorityZeroTasks(toDoTasks, inProgressTasks, awaitFeedbackTasks, doneTasks) {
   return toDoTasks.length + inProgressTasks.length + awaitFeedbackTasks.length + doneTasks.length;
 }
 
@@ -314,7 +314,7 @@ function updateSummaryUrgentRight(totalPriorityZeroTasks) {
  * @param {string} dateString - The date string to be formatted.
  * @returns {string} - The formatted date string in the specified localized format.
  */
-function formatDate(dateString) { 
+function formatDate(dateString) {
   let options = { year: "numeric", month: "long", day: "numeric" };
   return new Date(dateString).toLocaleDateString("en-US", options);
 }
@@ -337,7 +337,7 @@ function filterTasksByPriorityZero(taskList) {
  * @param {...Array} taskLists - Arrays of tasks to be merged.
  * @returns {Array} - A single array containing all tasks from the merged lists.
  */
-function mergeTaskLists(...taskLists) { 
+function mergeTaskLists(...taskLists) {
   return taskLists.reduce((acc, curr) => acc.concat(curr), []);
 }
 
@@ -348,7 +348,7 @@ function mergeTaskLists(...taskLists) {
  * @param {Array} tasks - An array of tasks containing due dates.
  * @returns {Date|null} - The closest due date as a Date object, or null if no tasks are provided.
  */
-function findClosestDueDate(tasks) { 
+function findClosestDueDate(tasks) {
   let currentDate = new Date();
   let closestDueDate = null;
   let closestDiff = Infinity;
@@ -419,11 +419,10 @@ function updateSecondLineRightDiv(closestDueDate) {
  * @returns {void}
  */
 async function initUser() {
-  console.log('innerhalb von init user')
   await includeHTML();
   await saveUserTasksToServer();
   await getGlobalUserData();
- getUser();
+  getUser();
   initNavbarHighlight();
   getUserLogo();
   if (document.getElementById("right-lower-main") !== null) {
@@ -439,13 +438,9 @@ async function initUser() {
  * @function getUser
  * @returns {void}
  */
-async function getUser() { 
+async function getUser() {
   try {
     let currentUserData = contactData[0];
-    console.log('Get user contact data', contactData[0])
-    console.log('Current User', currentUserData.userName)
-console.log('currentUser before push:', currentUserData.userNamer);
-
     currentUser = (currentUserData.userName);
   } catch (e) {
     console.error('Loading error:', e);
@@ -461,9 +456,9 @@ console.log('currentUser before push:', currentUserData.userNamer);
  * @returns {void}
  */
 
-function getUserLogo() { 
-  let initials = getInitialsOnLogo(currentUser); 
-  let displayInitials = initials.toUpperCase(); 
+function getUserLogo() {
+  let initials = getInitialsOnLogo(currentUser);
+  let displayInitials = initials.toUpperCase();
   if (currentUser !== 'Guest') {
     document.getElementById("header-userprofile").innerHTML = `<p>${displayInitials}</p>`;
   } else {
@@ -480,7 +475,7 @@ function getUserLogo() {
  * @param {string} currentUser
  * @returns {string}
  */
-function getInitialsOnLogo(currentUser) { 
+function getInitialsOnLogo(currentUser) {
   if (currentUser[0].includes(' ')) {
     initials = currentUser[0].split(' ').map(word => word.charAt(0)).join('');
   } else {
@@ -506,7 +501,7 @@ async function clearUser() {
  * @function initNavbarHighlight
  * @returns {void}
  */
-function initNavbarHighlight() { 
+function initNavbarHighlight() {
   let whereIAM = window.location.pathname;
   let elementId = getNavbarElementId(whereIAM);
   if (elementId) {
@@ -522,7 +517,7 @@ function initNavbarHighlight() {
  * @param {string} url - The URL for which to retrieve the navigation bar element ID.
  * @returns {string | undefined} - The ID of the navigation bar element, or undefined if no matching ID is found.
  */
-function getNavbarElementId(url) { 
+function getNavbarElementId(url) {
   let urlMappings = {
     "/Join/assets/templates/summary.html": "summary-list-element",
     "/assets/templates/summary.html": "summary-list-element",
@@ -548,7 +543,7 @@ function getNavbarElementId(url) {
  * @param {string} elementId - The ID of the HTML element to which the 'active' class will be added.
  * @returns {void}
  */
-function addActiveClass(elementId) { 
+function addActiveClass(elementId) {
   let element = document.getElementById(elementId);
   if (element) {
     element.classList.add("active");

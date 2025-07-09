@@ -135,7 +135,6 @@ async function loginUser() {
   const password = document.getElementById('loginPassword').value;
 
   const user = users.find(u => u.email === email && u.password === password);
-  console.log('user found')
   if (!user) {
     getErrorMessage();
   } else {
@@ -156,8 +155,6 @@ async function getGlobalUserData() {
 
     if (Array.isArray(contactData) && contactData.length === 0) {
       contactData.push(globalUserData);
-      console.log('Contact Data von globaluserdata', contactData)
-      console.log('getGlobalUserData Success')
       return globalUserData;
     }
   } catch (error) {
@@ -173,7 +170,6 @@ function getErrorMessage() {
   document.getElementById('loginPassword').style.border = '2px solid red';
   document.getElementById('wrongPassword').classList.remove('d-none');
   document.getElementById('rememberMe')?.classList.add('remember');
-
   document.getElementById('loginForm')?.addEventListener('click', stopPropagation);
 }
 
