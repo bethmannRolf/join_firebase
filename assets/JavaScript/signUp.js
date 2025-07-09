@@ -28,18 +28,25 @@ function getItem(key) {
 
 async function loadUsersFromFirebase() {
   try {
-    const snapshot = await firebase.database().ref('users').once('value');
-    const data = snapshot.val();
-    users = data
-      ? Object.values(data).map(cleanUserAfterFirebaseLoad)
-      : [];
-    console.log('Loaded users from Firebase:', users);
+    const snapshot = await firebase.database().ref('data').once('value');
+    const jsonString = snapshot.val();
+    users = jsonString ? JSON.parse(jsonString) : [];
+    console.log('Users loaded:', users);
   } catch (error) {
-    console.error('Error loading users from Firebase:', error);
+    console.error('Error loading users:', error);
     users = [];
   }
 }
 
+
+function safeParse(jsonString) {
+  try {
+    return JSON.parse(jsonString);
+  } catch (e) {
+    console.error('JSON parse error:', e);
+    return [];
+  }
+}
 
 
 
@@ -64,15 +71,10 @@ async function loadUsersFromFirebase() {
 
 async function saveUsersToFirebase() {
   try {
-    const usersAsObject = {};
-    users.forEach((user, index) => {
-      const uid = user.userName || `user_${index}`;
-      usersAsObject[uid] = prepareUserForFirebase(user);
-    });
-    await firebase.database().ref('users').set(usersAsObject);
-    console.log('Saved to Firebase successfully');
-  } catch (e) {
-    console.error('Saving to Firebase failed:', e);
+    await firebase.database().ref('data').set(JSON.stringify(users));
+    console.log('Users saved successfully');
+  } catch (error) {
+    console.error('Error saving users:', error);
   }
 }
 
@@ -194,59 +196,143 @@ function resetForm() {
 
 
 
-function cleanUserAfterFirebaseLoad(user) {
-  const userCopy = structuredClone(user);
+// function cleanUserAfterFirebaseLoad(user) {
+//   const userCopy = structuredClone(user);
 
-  if (
-    Array.isArray(userCopy.tasks) &&
-    userCopy.tasks.length > 0 &&
-    typeof userCopy.tasks[0] === 'object'
-  ) {
-    for (const key in userCopy.tasks[0]) {
-      if (
-        Array.isArray(userCopy.tasks[0][key]) &&
-        userCopy.tasks[0][key].length === 1 &&
-        userCopy.tasks[0][key][0] === '__placeholder__'
-      ) {
-        userCopy.tasks[0][key] = [];
-      }
-    }
-  }
+//   if (
+//     Array.isArray(userCopy.tasks) &&
+//     userCopy.tasks.length > 0 &&
+//     typeof userCopy.tasks[0] === 'object'
+//   ) {
+//     for (const key in userCopy.tasks[0]) {
+//       if (
+//         Array.isArray(userCopy.tasks[0][key]) &&
+//         userCopy.tasks[0][key].length === 1 &&
+//         userCopy.tasks[0][key][0] === '__placeholder__'
+//       ) {
+//         userCopy.tasks[0][key] = [];
+//       }
+//     }
+//   }
 
-  if (
-    Array.isArray(userCopy.contacts) &&
-    userCopy.contacts.length === 1 &&
-    userCopy.contacts[0] === '__placeholder__'
-  ) {
-    userCopy.contacts = [];
-  }
+//   if (
+//     Array.isArray(userCopy.contacts) &&
+//     userCopy.contacts.length === 1 &&
+//     userCopy.contacts[0] === '__placeholder__'
+//   ) {
+//     userCopy.contacts = [];
+//   }
 
-  return userCopy;
-}
+//   return userCopy;
+// }
 
 
-function prepareUserForFirebase(user) {
-  const userCopy = structuredClone(user);
+// function cleanUserAfterFirebaseLoad(user) {
+//   // Platzhalter "__EMPTY__" in contacts entfernen
+//   if (Array.isArray(user.contacts) && user.contacts[0] === '__EMPTY__') {
+//     user.contacts = [];
+//   }
 
-  if (
-    Array.isArray(userCopy.tasks) &&
-    userCopy.tasks.length > 0 &&
-    typeof userCopy.tasks[0] === 'object'
-  ) {
-    for (const key in userCopy.tasks[0]) {
-      if (
-        Array.isArray(userCopy.tasks[0][key]) &&
-        userCopy.tasks[0][key].length === 0
-      ) {
-        userCopy.tasks[0][key].push('__placeholder__');
-      }
-    }
-  }
+//   // Sicherstellen, dass tasks vorhanden ist und korrekt aufgebaut ist
+//   if (!Array.isArray(user.tasks) || user.tasks.length === 0) {
+//     user.tasks = [{
+//       toDo: [],
+//       inProgress: [],
+//       awaitFeedback: [],
+//       done: []
+//     }];
+//   } else {
+//     const taskGroups = ['toDo', 'inProgress', 'awaitFeedback', 'done'];
 
-  if (Array.isArray(userCopy.contacts) && userCopy.contacts.length === 0) {
-    userCopy.contacts.push('__placeholder__');
-  }
+//     taskGroups.forEach(group => {
+//       if (!Array.isArray(user.tasks[0][group])) {
+//         user.tasks[0][group] = [];
+//       } else if (user.tasks[0][group][0] === '__EMPTY__') {
+//         user.tasks[0][group] = [];
+//       }
+//     });
+//   }
 
-  return userCopy;
-}
+//   return user;
+// }
 
+
+
+
+
+
+
+// function prepareUserForFirebase(user) {
+//   const userCopy = structuredClone(user);
+
+//   if (
+//     Array.isArray(userCopy.tasks) &&
+//     userCopy.tasks.length > 0 &&
+//     typeof userCopy.tasks[0] === 'object'
+//   ) {
+//     for (const key in userCopy.tasks[0]) {
+//       if (
+//         Array.isArray(userCopy.tasks[0][key]) &&
+//         userCopy.tasks[0][key].length === 0
+//       ) {
+//         userCopy.tasks[0][key].push('__placeholder__');
+//       }
+//     }
+//   }
+
+//   if (Array.isArray(userCopy.contacts) && userCopy.contacts.length === 0) {
+//     userCopy.contacts.push('__placeholder__');
+//   }
+
+//   return userCopy;
+// }
+
+// function prepareUserForFirebase(user) {
+//   const clone = structuredClone(user); // Sichere Kopie
+
+//   const taskGroups = ['toDo', 'inProgress', 'awaitFeedback', 'done'];
+
+//   if (Array.isArray(clone.tasks)) {
+//     for (const taskGroup of taskGroups) {
+//       if (Array.isArray(clone.tasks[0]?.[taskGroup]) && clone.tasks[0][taskGroup].length === 0) {
+//         clone.tasks[0][taskGroup] = ['__EMPTY__'];
+//       }
+//     }
+
+//     if (isEmptyTaskObject(clone.tasks[0])) {
+//       clone.tasks = []; // komplett entfernen, wenn wirklich leer
+//     }
+//   }
+
+//   if (Array.isArray(clone.contacts) && clone.contacts.length === 0) {
+//     clone.contacts = ['__EMPTY__'];
+//   }
+
+//   return clone;
+// }
+
+// function restoreUserFromFirebase(user) {
+//   // Restore contacts
+//   if (Array.isArray(user.contacts) && user.contacts[0] === '__EMPTY__') {
+//     user.contacts = [];
+//   }
+
+//   // Restore tasks
+//   if (!Array.isArray(user.tasks) || user.tasks.length === 0) {
+//     user.tasks = [{
+//       toDo: [],
+//       inProgress: [],
+//       awaitFeedback: [],
+//       done: []
+//     }];
+//   } else {
+//     const taskGroups = ['toDo', 'inProgress', 'awaitFeedback', 'done'];
+//     for (const group of taskGroups) {
+//       if (Array.isArray(user.tasks[0][group]) && user.tasks[0][group][0] === '__EMPTY__') {
+//         user.tasks[0][group] = [];
+//       }
+//     }
+//   }
+
+//   return user;
+// }
